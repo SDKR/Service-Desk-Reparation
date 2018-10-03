@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OpretReparation">
 
-    <Grid Background="Yellow">
+    <Grid Background="White">
         <Button Content="Vis Købsaccept" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <Button Content="Opret Købsaccept" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="658,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
