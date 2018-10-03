@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:ServiceDesk_Reperation"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label>Forside</Label>
+    <Grid Background="White" Margin="0,0,10,10">
+        <DataGrid Height="288" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" SelectionChanged="DataGrid_SelectionChanged" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding NAME}" Width="*"/>
+                <DataGridTextColumn Header="Navn" Binding="{Binding NAME}" Width="*"/>
+                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding NAME}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding NAME}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Slet" HorizontalAlignment="Left" Margin="561,22,0,0" VerticalAlignment="Top" Width="104" Height="71"/>
+        <Button Content="Opret" HorizontalAlignment="Left" Margin="696,22,0,0" VerticalAlignment="Top" Width="86" Height="71"/>
+
     </Grid>
 </Window>
