@@ -13,6 +13,21 @@ namespace ServiceDesk_Reperation.ViewModel
     {
         private Page _currentViewModel;
 
+
+        private string _hallo;
+
+        public string hallo
+        {
+            get { return _hallo; }
+            set
+            {
+                _hallo = value;
+                OnPropertyChanged("hallo");
+            }
+        }
+
+        private Page previouspage;
+
         public Page currentViewModel
         {
             get { return _currentViewModel; }
@@ -26,20 +41,31 @@ namespace ServiceDesk_Reperation.ViewModel
 
         public PageCommand BackCommand { get; set; }
 
+        public PageCommand PageAccept { get; set; }
+
         public PageChanger()
         {
             this.currentViewModel = new StartPage();
             this.PageCommand = new Command(this);
             this.BackCommand = new PageCommand(this);
+            this.PageAccept = new PageCommand(this);
+            hallo = "hhhr";
         }
 
         public void ChangePageMethod()
         {
-            currentViewModel = new ChangeOfBuy();
+            previouspage = currentViewModel;
+            currentViewModel = new OpretReparation();
         }
         public void ChangebackMethod()
         {
-            currentViewModel = new StartPage();
+            currentViewModel = previouspage;
+            hallo = "halløj";
+        }
+
+        public void ShowRepairList()
+        {
+            currentViewModel = new KoibAccept();
         }
     }
 }

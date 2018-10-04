@@ -9,7 +9,7 @@
       Title="OpretReparation">
 
     <Grid Background="White">
-        <Button Content="Vis Købsaccept" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
+        <Button Content="Vis Købsaccept" Command="{Binding PageAccept}" CommandParameter="ShowRepairList" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <Button Content="Opret Købsaccept" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="658,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
@@ -28,7 +28,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,328,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
-        <Button Content="Luk" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Button Content="Luk" Command="{Binding BackCommand}" CommandParameter="ChangebackMethod" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Label Content="Producent" HorizontalAlignment="Left" Margin="414,60,0,0" VerticalAlignment="Top"/>
         <Label Content="SerieNr" HorizontalAlignment="Left" Margin="414,135,0,0" VerticalAlignment="Top"/>
         <Label Content="OS" HorizontalAlignment="Left" Margin="414,170,0,0" VerticalAlignment="Top"/>
