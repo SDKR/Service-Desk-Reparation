@@ -9,8 +9,11 @@
       Title="SendUpdate">
 
     <Grid Background="White">
-        <Button Content="Button" HorizontalAlignment="Left" Margin="322,377,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="471,377,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Send Update" HorizontalAlignment="Left" Margin="174,377,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button Content="Annuler" HorizontalAlignment="Left" Margin="418,377,0,0" VerticalAlignment="Top" Width="128"/>
+        <DataGrid HorizontalAlignment="Left" Height="313" Margin="594,84,0,0" VerticalAlignment="Top" Width="167"/>
+        <TextBox HorizontalAlignment="Left" Height="272" Margin="174,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <Label Content="Note til Opdatering" HorizontalAlignment="Left" Margin="45,84,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
