@@ -14,7 +14,7 @@
         <ComboBox HorizontalAlignment="Left" Margin="465,51,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
         <Button Content="Gem" HorizontalAlignment="Left" Margin="614,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="716,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" SelectionChanged="DataGrid_SelectionChanged" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
+        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Del" Binding="{Binding NAME}" Width="*"/>
                 <DataGridTextColumn Header="Pris" Binding="{Binding NAME}" Width="*"/>
