@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ServiceDesk_Reperation.ViewModel
+namespace ServiceDesk_Reperation.ViewModel.Commands
 {
-    class Command : ICommand
+    class PageCommand : ICommand
     {
         public PageChanger ViewModel { get; set; }
 
-        public Command(PageChanger viewModel)
+
+        public PageCommand(PageChanger viewModel)
         {
             this.ViewModel = viewModel;
         }
@@ -25,7 +26,7 @@ namespace ServiceDesk_Reperation.ViewModel
 
         public void Execute(object parameter)
         {
-            this.ViewModel.ChangePageMethod();
+            this.ViewModel.ChangebackMethod();
         }
     }
 }

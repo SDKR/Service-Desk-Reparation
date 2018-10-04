@@ -57,7 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\Reparation.cs" />
     <Compile Include="ViewModel\Commands\Command.cs" />
+    <Compile Include="ViewModel\Commands\PageCommand.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
+    <Compile Include="ViewModel\PageChanger.cs" />
     <Compile Include="ViewModel\Presenter.cs" />
     <Compile Include="View\ChangeOfBuy.xaml.cs">
       <DependentUpon>ChangeOfBuy.xaml</DependentUpon>
@@ -70,6 +72,9 @@
     </Compile>
     <Compile Include="View\SendUpdate.xaml.cs">
       <DependentUpon>SendUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +103,10 @@
     <Page Include="View\SendUpdate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

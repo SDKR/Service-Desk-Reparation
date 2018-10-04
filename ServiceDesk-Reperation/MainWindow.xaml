@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceDesk_Reperation"
+        xmlns:vm="clr-namespace:ServiceDesk_Reperation.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="850">
-    <Grid Background="White" Margin="0,0,10,10">
+        Title="MainWindow" Height="500" Width="850"
+        Content="{Binding currentViewModel}">
+    <Window.DataContext>
+        <vm:PageChanger/>
+    </Window.DataContext>
+    <!--<Grid Background="White" Margin="0,0,10,10">
         <DataGrid Height="288" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding NAME}" Width="*"/>
@@ -18,5 +23,5 @@
         <Button Content="Slet" HorizontalAlignment="Left" Margin="561,22,0,0" VerticalAlignment="Top" Width="104" Height="71"/>
         <Button Content="Opret" HorizontalAlignment="Left" Margin="696,22,0,0" VerticalAlignment="Top" Width="86" Height="71"/>
 
-    </Grid>
+    </Grid>-->
 </Window>
