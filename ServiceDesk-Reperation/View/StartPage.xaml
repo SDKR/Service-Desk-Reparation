@@ -10,8 +10,8 @@
 
     <Grid Background="White">
         <Label Content="{Binding hallo}" HorizontalAlignment="Left" Margin="182,52,0,0" VerticalAlignment="Top"/>
-        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10">
-            <DataGrid.Columns>
+            <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10">
+                <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding NAME}" Width="*"/>
                 <DataGridTextColumn Header="Navn" Binding="{Binding NAME}" Width="*"/>
                 <DataGridTextColumn Header="Beskrivelse" Binding="{Binding NAME}" Width="*"/>
