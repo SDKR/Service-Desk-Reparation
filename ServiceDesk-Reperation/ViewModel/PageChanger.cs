@@ -17,6 +17,17 @@ namespace ServiceDesk_Reperation.ViewModel
     {
         private DBObject _DB;
 
+        private Case _currentcase;
+
+        public Case CurrentCase
+        {
+            get { return _currentcase; }
+            set { _currentcase = value;
+                OnPropertyChanged("CurrentCase");
+            }
+        }
+
+
         private ObservableCollection<Case> _cases;
 
         public ObservableCollection<Case> Cases
@@ -49,13 +60,15 @@ namespace ServiceDesk_Reperation.ViewModel
 
         public PageCommand PageAccept { get; set; }
 
+        public DataGridCommand DataGridCommand { get; set; }
+
         public PageChanger()
         {
             this.DB = new DBObject();
             this.currentViewModel = new StartPage();
             this.PageCommand = new Command(this);
             this.BackCommand = new PageCommand(this);
-
+            this.DataGridCommand = new DataGridCommand(this);
             DataSet ds = new DataSet();
             Cases = new ObservableCollection<Case>();
             ds = DB.Query("SELECT ID FROM sager");
@@ -79,6 +92,12 @@ namespace ServiceDesk_Reperation.ViewModel
         public void ShowRepairList()
         {
             currentViewModel = new KoibAccept();
+        }
+        public void OpenCase(Case current)
+        {
+            previouspage = currentViewModel;
+            currentViewModel = new OpretReparation();
+            CurrentCase = current;
         }
     }
 }

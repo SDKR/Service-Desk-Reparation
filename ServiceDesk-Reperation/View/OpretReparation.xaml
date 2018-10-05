@@ -12,37 +12,20 @@
         <Button Content="Vis Købsaccept" Command="{Binding PageAccept}" CommandParameter="ShowRepairList" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <Button Content="Opret Købsaccept" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="658,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
-        <TextBox Name="Opret_Name" PreviewTextInput="OnlyLetters" HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <ComboBox HorizontalAlignment="Left" Margin="84,138,0,0" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="163" Margin="84,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
+        <TextBox Name="Opret_Name" Text="{Binding CurrentCase.Customer.Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Address, Mode=TwoWay}" Height="23" Margin="84,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.ZipCode.Zip, Mode=TwoWay}" Margin="84,138,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Telephone , Mode=TwoWay}"  Height="23" Margin="84,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Email , Mode=TwoWay}" Height="23" Margin="84,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Description , Mode=TwoWay}" Height="163" Margin="84,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <Label Content="Oprettelses af nyt produkt" HorizontalAlignment="Left" Margin="84,15,0,0" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <ComboBox HorizontalAlignment="Left" Margin="488,170,0,0" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <ComboBox HorizontalAlignment="Left" Margin="488,251,0,0" VerticalAlignment="Top" Width="165">
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>4</ComboBoxItem>
-            <ComboBoxItem>6</ComboBoxItem>
-            <ComboBoxItem>8</ComboBoxItem>
-            <ComboBoxItem>10</ComboBoxItem>
-            <ComboBoxItem>12</ComboBoxItem>
-            <ComboBoxItem>14</ComboBoxItem>
-            <ComboBoxItem>16</ComboBoxItem>
-            <ComboBoxItem>18</ComboBoxItem>
-            <ComboBoxItem>20</ComboBoxItem>
-            <ComboBoxItem>22</ComboBoxItem>
-            <ComboBoxItem>24</ComboBoxItem>
-            <ComboBoxItem>26</ComboBoxItem>
-            <ComboBoxItem>28</ComboBoxItem>
-            <ComboBoxItem>30</ComboBoxItem>
-            <ComboBoxItem>32</ComboBoxItem>
-        </ComboBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.Manufacturer , Mode=TwoWay}" Height="23" Margin="488,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding CurrentCase.PC.Model, Mode=TwoWay}" Margin="488,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding CurrentCase.PC.SerialNumber, Mode=TwoWay}"  Margin="488,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.OS, Mode=TwoWay}" Margin="488,170,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" Text="{Binding CurrentCase.PC.CPU, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.RAM, Mode=TwoWay}" Margin="488,251,0,0" VerticalAlignment="Top" Width="165"></TextBox>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.Storage, Mode=TwoWay}" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Button Content="Luk" Command="{Binding BackCommand}" CommandParameter="ChangebackMethod" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Label Content="Producent" HorizontalAlignment="Left" Margin="414,60,0,0" VerticalAlignment="Top"/>
@@ -59,11 +42,7 @@
         <Label Content="Telefon" HorizontalAlignment="Left" Margin="19,170,0,0" VerticalAlignment="Top"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="19,203,0,0" VerticalAlignment="Top"/>
         <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="Opret_Status" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
-            <ComboBoxItem>På lager</ComboBoxItem>
-            <ComboBoxItem>Bestilt</ComboBoxItem>
-            <ComboBoxItem>Ny</ComboBoxItem>
-            <ComboBoxItem>Monteret</ComboBoxItem>
+        <ComboBox Name="Opret_Status" Text="{Binding CurrentCase.Status.Status}" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
         </ComboBox>
     </Grid>
 </Page>
