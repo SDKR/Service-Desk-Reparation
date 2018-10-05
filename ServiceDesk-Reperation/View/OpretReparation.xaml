@@ -24,9 +24,25 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,138,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
         <ComboBox HorizontalAlignment="Left" Margin="488,170,0,0" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
-        <ComboBox HorizontalAlignment="Left" Margin="488,251,0,0" VerticalAlignment="Top" Width="165"/>
+        <ComboBox HorizontalAlignment="Left" Margin="488,251,0,0" VerticalAlignment="Top" Width="165">
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+            <ComboBoxItem>8</ComboBoxItem>
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>14</ComboBoxItem>
+            <ComboBoxItem>16</ComboBoxItem>
+            <ComboBoxItem>18</ComboBoxItem>
+            <ComboBoxItem>20</ComboBoxItem>
+            <ComboBoxItem>22</ComboBoxItem>
+            <ComboBoxItem>24</ComboBoxItem>
+            <ComboBoxItem>26</ComboBoxItem>
+            <ComboBoxItem>28</ComboBoxItem>
+            <ComboBoxItem>30</ComboBoxItem>
+            <ComboBoxItem>32</ComboBoxItem>
+        </ComboBox>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,328,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="165"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Button Content="Luk" Command="{Binding BackCommand}" CommandParameter="ChangebackMethod" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Label Content="Producent" HorizontalAlignment="Left" Margin="414,60,0,0" VerticalAlignment="Top"/>
@@ -43,5 +59,11 @@
         <Label Content="Telefon" HorizontalAlignment="Left" Margin="19,170,0,0" VerticalAlignment="Top"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="19,203,0,0" VerticalAlignment="Top"/>
         <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="Opret_Status" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
+            <ComboBoxItem>På lager</ComboBoxItem>
+            <ComboBoxItem>Bestilt</ComboBoxItem>
+            <ComboBoxItem>Ny</ComboBoxItem>
+            <ComboBoxItem>Monteret</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Page>
