@@ -26,8 +26,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" Text="{Binding CurrentCase.PC.CPU, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.RAM, Mode=TwoWay}" Margin="488,251,0,0" VerticalAlignment="Top" Width="165"></TextBox>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.Storage, Mode=TwoWay}" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <Button Content="Slet" HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
-        <Button Content="Luk" Command="{Binding BackCommand}" CommandParameter="ChangebackMethod" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Button Content="Gem" Command="{Binding StandardCommand}" CommandParameter="SaveCase"  HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Button Content="Luk" Command="{Binding StandardCommand}" CommandParameter="ChangebackMethod" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Label Content="Producent" HorizontalAlignment="Left" Margin="414,60,0,0" VerticalAlignment="Top"/>
         <Label Content="SerieNr" HorizontalAlignment="Left" Margin="414,135,0,0" VerticalAlignment="Top"/>
         <Label Content="OS" HorizontalAlignment="Left" Margin="414,170,0,0" VerticalAlignment="Top"/>
@@ -42,7 +42,7 @@
         <Label Content="Telefon" HorizontalAlignment="Left" Margin="19,170,0,0" VerticalAlignment="Top"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="19,203,0,0" VerticalAlignment="Top"/>
         <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="Opret_Status" Text="{Binding CurrentCase.Status.Status}" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
+        <ComboBox Name="Opret_Status" DisplayMemberPath="Status" SelectedValue="{Binding CurrentCase.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding StatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
         </ComboBox>
     </Grid>
 </Page>

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace ServiceDesk_Reperation.ViewModel
 {
@@ -18,6 +19,15 @@ namespace ServiceDesk_Reperation.ViewModel
         private DBObject _DB;
 
         private Case _currentcase;
+
+        private List<CaseStatus> _StatusList;
+
+        public List<CaseStatus> StatusList
+        {
+            get { return _StatusList; }
+            set { _StatusList = value; }
+        }
+
 
         public Case CurrentCase
         {
@@ -56,7 +66,7 @@ namespace ServiceDesk_Reperation.ViewModel
         }
         public Command PageCommand { get; set; }
 
-        public PageCommand BackCommand { get; set; }
+        public PageCommand StandardCommand { get; set; }
 
         public PageCommand PageAccept { get; set; }
 
@@ -67,7 +77,7 @@ namespace ServiceDesk_Reperation.ViewModel
             this.DB = new DBObject();
             this.currentViewModel = new StartPage();
             this.PageCommand = new Command(this);
-            this.BackCommand = new PageCommand(this);
+            this.StandardCommand = new PageCommand(this);
             this.DataGridCommand = new DataGridCommand(this);
             DataSet ds = new DataSet();
             Cases = new ObservableCollection<Case>();
@@ -86,6 +96,7 @@ namespace ServiceDesk_Reperation.ViewModel
         }
         public void ChangebackMethod()
         {
+            CurrentCase.Refresh();
             currentViewModel = previouspage;
         }
 
@@ -96,8 +107,19 @@ namespace ServiceDesk_Reperation.ViewModel
         public void OpenCase(Case current)
         {
             previouspage = currentViewModel;
+            StatusList = new List<CaseStatus>();
+            for (int i = 1; i < 7; i++)
+            {
+                StatusList.Add(new CaseStatus(i));
+            }
             currentViewModel = new OpretReparation();
             CurrentCase = current;
+        }
+        public void SaveCase()
+        {
+            CurrentCase.updateCase();
+            CurrentCase.Refresh();
+            currentViewModel = previouspage;
         }
     }
 }
