@@ -8,9 +8,14 @@
       Title="ChangeOfBuy">
 
     <Grid Background="White">
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="76,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="112"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="259,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="465,51,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="51,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="224,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="430,51,0,0" VerticalAlignment="Top" Width="120" Height="26">
+            <ComboBoxItem>På lager</ComboBoxItem>
+            <ComboBoxItem>Bestilt</ComboBoxItem>
+            <ComboBoxItem>Ny</ComboBoxItem>
+            <ComboBoxItem>Monteret</ComboBoxItem>
+        </ComboBox>
         <Button Content="Gem" HorizontalAlignment="Left" Margin="614,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="716,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
         <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
@@ -21,9 +26,9 @@
                 <DataGridTextColumn Header="Sidst Opdataeret" Binding="{Binding NAME}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Del" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="44"/>
-        <Label Content="Pris" HorizontalAlignment="Left" Margin="205,51,0,0" VerticalAlignment="Top" Width="44"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="401,51,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Content="Del" HorizontalAlignment="Left" Margin="15,51,0,0" VerticalAlignment="Top" Width="36"/>
+        <Label Content="Pris" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="381,51,0,0" VerticalAlignment="Top" Width="44"/>
         <Button Content="Opret Ny" Command="{Binding BackCommand}" HorizontalAlignment="Left" Margin="614,15,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
         <Button Content="Send Update Til Kunde" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="26" Margin="716,15,0,0"/>
     </Grid>

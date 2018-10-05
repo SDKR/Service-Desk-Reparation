@@ -32,6 +32,8 @@ namespace ServiceDesk_Reperation.ViewModel
             set{ _DB = value;}
         }
 
+        private Page previouspage;
+
         public Page currentViewModel
         {
             get { return _currentViewModel; }
@@ -45,12 +47,15 @@ namespace ServiceDesk_Reperation.ViewModel
 
         public PageCommand BackCommand { get; set; }
 
+        public PageCommand PageAccept { get; set; }
+
         public PageChanger()
         {
             this.DB = new DBObject();
             this.currentViewModel = new StartPage();
             this.PageCommand = new Command(this);
             this.BackCommand = new PageCommand(this);
+
             DataSet ds = new DataSet();
             Cases = new ObservableCollection<Case>();
             ds = DB.Query("SELECT ID FROM sager");
@@ -58,16 +63,22 @@ namespace ServiceDesk_Reperation.ViewModel
             { 
                 Cases.Add(new Case(Convert.ToInt32(ds.Tables[0].Rows[i][0])));
             }
-            Console.WriteLine(Cases.Count);
+            this.PageAccept = new PageCommand(this);
         }
 
         public void ChangePageMethod()
         {
-            currentViewModel = new ChangeOfBuy();
+            previouspage = currentViewModel;
+            currentViewModel = new OpretReparation();
         }
         public void ChangebackMethod()
         {
-            currentViewModel = new StartPage();
+            currentViewModel = previouspage;
+        }
+
+        public void ShowRepairList()
+        {
+            currentViewModel = new KoibAccept();
         }
     }
 }

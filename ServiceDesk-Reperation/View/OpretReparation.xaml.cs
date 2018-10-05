@@ -24,5 +24,10 @@ namespace ServiceDesk_Reperation.View
         {
             InitializeComponent();
         }
+
+        private void TextBox_TargetUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

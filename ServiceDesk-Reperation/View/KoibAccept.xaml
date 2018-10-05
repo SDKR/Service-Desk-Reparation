@@ -8,7 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="KoibAccept">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Button Content="+" HorizontalAlignment="Left" Margin="580,91,0,0" VerticalAlignment="Top" Width="22" Height="23" FontSize="12"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="251,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="435,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="201,132,198,131">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Del" Binding="{Binding NAME}" Width="*"/>
+                <DataGridTextColumn Header="Pris" Binding="{Binding NAME}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Opret" HorizontalAlignment="Left" Margin="201,336,0,0" VerticalAlignment="Top" Width="198" Height="48"/>
+        <Button Content="Annuller" HorizontalAlignment="Left" Margin="415,336,0,0" VerticalAlignment="Top" Width="187" Height="48"/>
+        <Label Content="Pris" HorizontalAlignment="Left" Margin="388,91,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label Content="Del" HorizontalAlignment="Left" Margin="201,91,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label Content="Alle Dele" HorizontalAlignment="Left" Margin="133,132,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
