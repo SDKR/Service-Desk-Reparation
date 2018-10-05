@@ -11,7 +11,40 @@
     <Grid Background="White">
         <Button Content="Send Update" HorizontalAlignment="Left" Margin="174,377,0,0" VerticalAlignment="Top" Width="126"/>
         <Button Content="Annuler" HorizontalAlignment="Left" Margin="418,377,0,0" VerticalAlignment="Top" Width="128"/>
-        <DataGrid HorizontalAlignment="Left" Height="313" Margin="594,84,0,0" VerticalAlignment="Top" Width="167"/>
+        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="558,85,25,94">
+
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="270"/>
+                    <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}"
+                       BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Dele" Binding="{Binding Check}" Width="*"/>
+                <DataGridTextColumn Header="Motherboard" Binding="{Binding Om}" Width="*" />
+                <DataGridTextColumn Header="HDD" Binding="{Binding Det}" Width="*" />
+                <DataGridTextColumn Header="RAM" Binding="{Binding Her}" Width="*" />
+                <DataGridTextColumn Header="CPU" Binding="{Binding Virker}" Width="*" />
+                <DataGridTextColumn Header="OS" Binding="{Binding Virker}" Width="*" />
+            </DataGrid.Columns>
+
+
+        </DataGrid>
         <TextBox HorizontalAlignment="Left" Height="272" Margin="174,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
         <Label Content="Note til Opdatering" HorizontalAlignment="Left" Margin="45,84,0,0" VerticalAlignment="Top"/>
 
