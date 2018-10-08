@@ -33,6 +33,8 @@
         <Label Content="Pris" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" Width="44"/>
         <Label Content="Status" HorizontalAlignment="Left" Margin="381,51,0,0" VerticalAlignment="Top" Width="44"/>
         <Button Content="Opret Ny" Command="{Binding BackCommand}" HorizontalAlignment="Left" Margin="614,15,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <Button Content="Send Update Til Kunde" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="26" Margin="716,15,0,0"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="716,15,0,0" VerticalAlignment="Top" Width="74" Height="28" Command="{Binding StandardCommand}" CommandParameter="ShowSendUpdate"/>
+        <Button Content="Ryd Indhold" HorizontalAlignment="Left" Margin="514,15,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button Content="Tilbage" Command="{Binding StandardCommand}" CommandParameter="ChangePageMethod" HorizontalAlignment="Left" Margin="408,15,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
     </Grid>
 </Page>

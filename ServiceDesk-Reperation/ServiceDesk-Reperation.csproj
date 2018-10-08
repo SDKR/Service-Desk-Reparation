@@ -88,9 +88,6 @@
     <Compile Include="View\ChangeOfBuy.xaml.cs">
       <DependentUpon>ChangeOfBuy.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\KoibAccept.xaml.cs">
-      <DependentUpon>KoibAccept.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\OpretReparation.xaml.cs">
       <DependentUpon>OpretReparation.xaml</DependentUpon>
     </Compile>
@@ -113,10 +110,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ChangeOfBuy.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\KoibAccept.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

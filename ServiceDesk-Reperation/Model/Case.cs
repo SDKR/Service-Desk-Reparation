@@ -109,6 +109,7 @@ namespace ServiceDesk_Reperation.Model
         {
             DataSet ds = new DataSet();
             ds = DB.Query($"SELECT ID FROM dele WHERE sagid = {ID}");
+            Parts = new ObservableCollection<Part>();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 Parts.Add(new Part((int)ds.Tables[0].Rows[i][0]));

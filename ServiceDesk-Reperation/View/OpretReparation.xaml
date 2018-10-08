@@ -10,8 +10,7 @@
 
     <Grid Background="White">
         <Button Content="Vis Købsaccept" Command="{Binding PageAccept}" CommandParameter="ShowRepairList" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
-        <Button Content="Opret Købsaccept" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
-        <Button Content="Slet" HorizontalAlignment="Left" Margin="658,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
+        <Button Content="Slet" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <TextBox Name="Opret_Name" Text="{Binding CurrentCase.Customer.Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Address, Mode=TwoWay}" Height="23" Margin="84,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.ZipCode.Zip, Mode=TwoWay}" Margin="84,138,0,0" VerticalAlignment="Top" Width="165"/>
