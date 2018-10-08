@@ -23,6 +23,7 @@
         <Label Content="Pris" HorizontalAlignment="Left" Margin="388,91,0,0" VerticalAlignment="Top" Height="23"/>
         <Label Content="Del" HorizontalAlignment="Left" Margin="201,91,0,0" VerticalAlignment="Top" Height="23"/>
         <Label Content="Alle Dele" HorizontalAlignment="Left" Margin="133,132,0,0" VerticalAlignment="Top"/>
+        <Button Content="Send Update" HorizontalAlignment="Left" Margin="607,23,0,0" VerticalAlignment="Top" Width="183" Height="91" Command="{Binding StandardCommand}" CommandParameter="ShowSendUpdate"/>
 
     </Grid>
 </Page>

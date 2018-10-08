@@ -126,6 +126,12 @@ namespace ServiceDesk_Reperation.ViewModel
             }
         }
 
+        public void ShowSendUpdate()
+        {
+            previouspage = currentViewModel;
+            currentViewModel = new SendUpdate();
+        }
+
         public void ChangePageMethod()
         {
             previouspage = currentViewModel;
