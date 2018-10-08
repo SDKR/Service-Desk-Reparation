@@ -13,7 +13,6 @@
         <Button Content="Slet" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
         <TextBox Name="Opret_Name" Text="{Binding CurrentCase.Customer.Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Address, Mode=TwoWay}" Height="23" Margin="84,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.ZipCode.Zip, Mode=TwoWay}" Margin="84,138,0,0" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Telephone , Mode=TwoWay}"  Height="23" Margin="84,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Customer.Email , Mode=TwoWay}" Height="23" Margin="84,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.Description , Mode=TwoWay}" Height="163" Margin="84,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
@@ -21,7 +20,7 @@
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.Manufacturer , Mode=TwoWay}" Height="23" Margin="488,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding CurrentCase.PC.Model, Mode=TwoWay}" Margin="488,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding CurrentCase.PC.SerialNumber, Mode=TwoWay}"  Margin="488,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.OS, Mode=TwoWay}" Margin="488,170,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.OS, Mode=TwoWay}" Margin="488,170,0,0" VerticalAlignment="Top" Width="165" Height="23"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" Text="{Binding CurrentCase.PC.CPU, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.RAM, Mode=TwoWay}" Margin="488,251,0,0" VerticalAlignment="Top" Width="165"></TextBox>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.Storage, Mode=TwoWay}" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
@@ -43,5 +42,8 @@
         <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="Opret_Status" DisplayMemberPath="Status" SelectedValue="{Binding CurrentCase.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding StatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
         </ComboBox>
+        <!--<ComboBox ItemsSource="{Binding CityList}" DisplayMemberPath="Zip" SelectedValuePath="Zip" SelectedValue="{Binding CurrentCase.Customer.ZipCode.Zip}" HorizontalAlignment="Left" Margin="84,134,0,0" VerticalAlignment="Top" Width="64"/>-->
+        <Label Content="{Binding CurrentCase.Customer.ZipCode.City }" HorizontalAlignment="Left" Margin="153,126,0,0" VerticalAlignment="Top" Height="30"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,138,0,0" TextWrapping="Wrap" Text="{Binding CurrentCase.Customer.ZipCode.Zip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" MaxLength="4" Width="64"/>
     </Grid>
 </Page>

@@ -28,6 +28,8 @@ namespace ServiceDesk_Reperation.ViewModel
             set { _StatusList = value; }
         }
 
+        public List<ZipCode_City> CityList { get; set; }
+
         public void ShowPart(Part para)
         {
             CurrentPart = para;

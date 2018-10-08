@@ -1,4 +1,5 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
+using ServiceDesk_Reperation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.Model
 {
-    class PC
+    class PC : ObservableObject
     {
         private int _ID;
         private string _manufacturer;
@@ -23,49 +24,65 @@ namespace ServiceDesk_Reperation.Model
         public int ID
         {
             get { return _ID; }
-            set { _ID = value; }
+            set { _ID = value;
+                RaisePropertyChangedEvent("ID");
+            }
         }
 
         public string Manufacturer
         {
             get { return _manufacturer; }
-            set { _manufacturer = value; }
+            set { _manufacturer = value;
+                RaisePropertyChangedEvent("Manufacturer");
+            }
         }
         
         public string Model
         {
             get { return _model; }
-            set { _model = value; }
+            set { _model = value;
+                RaisePropertyChangedEvent("Model");
+            }
         }
 
         public string SerialNumber
         {
             get { return _serialnumber; }
-            set { _serialnumber = value; }
+            set { _serialnumber = value;
+                RaisePropertyChangedEvent("SerialNumber");
+            }
         }
 
         public string OS
         {
             get { return _os; }
-            set { _os = value; }
+            set { _os = value;
+                RaisePropertyChangedEvent("OS");
+            }
         }
 
         public string CPU
         {
             get { return _cpu; }
-            set { _cpu = value; }
+            set { _cpu = value;
+                RaisePropertyChangedEvent("CPU");
+            }
         }
 
         public string RAM
         {
             get { return _ram; }
-            set { _ram = value; }
+            set { _ram = value;
+                RaisePropertyChangedEvent("RAM");
+            }
         }
 
         public string Storage
         {
             get { return _storage; }
-            set { _storage = value; }
+            set { _storage = value;
+                RaisePropertyChangedEvent("Storage");
+            }
         }
 
         public DBObject DB

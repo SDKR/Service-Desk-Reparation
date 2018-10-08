@@ -1,4 +1,5 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
+using ServiceDesk_Reperation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.Model
 {
-    class Customer
+    class Customer : ObservableObject
     {
         private int _ID;
         private string _name;
@@ -22,37 +23,49 @@ namespace ServiceDesk_Reperation.Model
         public int ID
         {
             get { return _ID; }
-            set { _ID = value; }
+            set { _ID = value;
+                RaisePropertyChangedEvent("ID");
+            }
         }
 
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set { _name = value;
+                RaisePropertyChangedEvent("Name");
+            }
         }
 
         public string Address
         {
             get { return _address; }
-            set { _address = value; }
+            set { _address = value;
+                RaisePropertyChangedEvent("Address");
+            }
         }
 
         public ZipCode_City ZipCode
         {
             get { return _zipCode; }
-            set { _zipCode = value; }
+            set { _zipCode = value;
+                RaisePropertyChangedEvent("ZipCode");
+            }
         }
 
         public string Telephone
         {
             get { return _telephone; }
-            set { _telephone = value; }
+            set { _telephone = value;
+                RaisePropertyChangedEvent("Telephone");
+            }
         }
 
         public string Email
         {
             get { return _email; }
-            set { _email = value; }
+            set { _email = value;
+                RaisePropertyChangedEvent("Email");
+            }
         }
 
         public DBObject DB

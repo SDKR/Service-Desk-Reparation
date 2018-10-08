@@ -18,13 +18,16 @@ namespace ServiceDesk_Reperation.Model
         {
             get { return _ID; }
             set { _ID = value;
+                RaisePropertyChangedEvent("ID");
             }
         }
 
         public string Status
         {
             get { return _status; }
-            set { _status = value; }
+            set { _status = value;
+                RaisePropertyChangedEvent("Status");
+            }
         }
 
 

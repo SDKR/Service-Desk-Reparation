@@ -1,4 +1,5 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
+using ServiceDesk_Reperation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.Model
 {
-    class Case
+    class Case : ObservableObject
     {
         private int _ID;
         private Customer _customer;
@@ -22,38 +23,53 @@ namespace ServiceDesk_Reperation.Model
 
         public int ID
         {
-            get { return _ID -1; }
-            set { _ID = value + 1; }
+            get { return _ID; }
+            set { _ID = value;
+                RaisePropertyChangedEvent("ID");
+            }
         }
         public Customer Customer
         {
             get { return _customer; }
-            set { _customer = value; }
+            set { _customer = value;
+                RaisePropertyChangedEvent("Customer");
+            }
+
         }
         public PC PC
         {
             get { return _pc; }
-            set { _pc = value; }
+            set { _pc = value;
+                RaisePropertyChangedEvent("PC");
+            }
         }
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set { _description = value;
+                RaisePropertyChangedEvent("Description");
+            }
         }
         public CaseStatus Status
         {
             get { return _status; }
-            set { _status = value; }
+            set { _status = value;
+                RaisePropertyChangedEvent("Status");
+            }
         }
         public DateTime CreationDate
         {
             get { return _creationDate; }
-            set { _creationDate = value; }
+            set { _creationDate = value;
+                RaisePropertyChangedEvent("CreationDate");
+            }
         }
         public ObservableCollection<Part> Parts
         {
             get { return _parts; }
-            set { _parts = value; }
+            set { _parts = value;
+                RaiseCollectionChangedEvent("Parts");
+            }
         }
 
         public DBObject DB

@@ -22,12 +22,16 @@ namespace ServiceDesk_Reperation.Model
         public int ID
         {
             get { return _ID; }
-            set { _ID = value; }
+            set { _ID = value;
+                RaisePropertyChangedEvent("ID");
+            }
         }
         public int CaseID
         {
             get { return _caseID; }
-            set { _caseID = value; }
+            set { _caseID = value;
+                RaisePropertyChangedEvent("CaseID");
+            }
         }
         public string PartName
         {
@@ -47,7 +51,9 @@ namespace ServiceDesk_Reperation.Model
         public PartStatus Status
         {
             get { return _status; }
-            set { _status = value; }
+            set { _status = value;
+                RaisePropertyChangedEvent("Status");
+            }
         }
 
         public DateTime LastChangedDate
