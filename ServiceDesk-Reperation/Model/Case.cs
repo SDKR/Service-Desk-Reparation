@@ -21,8 +21,8 @@ namespace ServiceDesk_Reperation.Model
 
         public int ID
         {
-            get { return _ID; }
-            set { _ID = value; }
+            get { return _ID -1; }
+            set { _ID = value + 1; }
         }
         public Customer Customer
         {
@@ -112,6 +112,19 @@ namespace ServiceDesk_Reperation.Model
             {
                 Parts.Add(new Part((int)ds.Tables[0].Rows[i][0]));
             }
+        }
+        public void Refresh()
+        {
+            DB = new DBObject();
+            DataSet ds = new DataSet();
+            ds = DB.Query($"SELECT * FROM sager WHERE ID = {ID}");
+            this.ID = (int)ds.Tables[0].Rows[0][0];
+            Customer = new Customer((int)ds.Tables[0].Rows[0][1]);
+            PC = new PC((int)ds.Tables[0].Rows[0][2]);
+            Description = (string)ds.Tables[0].Rows[0][3];
+            Status = new CaseStatus((int)ds.Tables[0].Rows[0][4]);
+            CreationDate = Convert.ToDateTime(ds.Tables[0].Rows[0][5]);
+            Parts = new List<Part>();
         }
 
     }

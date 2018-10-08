@@ -1,4 +1,5 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
+using ServiceDesk_Reperation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.Model
 {
-    class CaseStatus
+    class CaseStatus:ObservableObject
     {
         private int _ID;
         private string _status;
@@ -16,7 +17,8 @@ namespace ServiceDesk_Reperation.Model
         public int ID
         {
             get { return _ID; }
-            set { _ID = value; }
+            set { _ID = value;
+            }
         }
 
         public string Status
@@ -37,7 +39,7 @@ namespace ServiceDesk_Reperation.Model
             DBObject DB = new DBObject();
             DataSet ds = new DataSet();
             ds = DB.Query($"SELECT * FROM sagerstatus WHERE ID = {ID}");
-            ID = (int) ds.Tables[0].Rows[0][0];
+            this.ID = (int) ds.Tables[0].Rows[0][0];
             Status = (string) ds.Tables[0].Rows[0][1];
         }
 

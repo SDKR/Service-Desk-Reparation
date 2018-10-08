@@ -82,7 +82,7 @@ namespace ServiceDesk_Reperation.Model
 
         public void updateCustomer()
         {
-            DB.NonQuery($"UPDATE kunde SET navn = '{Name}', adresse = '{Address}', postnr = {ZipCode.Zip}, tlf = '{Telephone}', email = {Email} WHERE ID = {ID}");
+            DB.NonQuery($"UPDATE kunde SET navn = '{Name}', adresse = '{Address}', postnr = {ZipCode.Zip}, tlf = '{Telephone}', email = '{Email}' WHERE ID = {ID}");
         }
         public void deleteCustomer()
         {
