@@ -1,6 +1,7 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace ServiceDesk_Reperation.Model
         private string _description;
         private CaseStatus _status;
         private DateTime _creationDate;
-        private List<Part> _parts;
+        private ObservableCollection<Part> _parts;
         private DBObject _db;
 
         public int ID
@@ -49,7 +50,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _creationDate; }
             set { _creationDate = value; }
         }
-        public List<Part> Parts
+        public ObservableCollection<Part> Parts
         {
             get { return _parts; }
             set { _parts = value; }
@@ -69,7 +70,7 @@ namespace ServiceDesk_Reperation.Model
             PC = new PC();
             Status = new CaseStatus();
             CreationDate = DateTime.Now;
-            Parts = new List<Part>();
+            Parts = new ObservableCollection<Part>();
         }
         public Case(int ID)
         {
@@ -82,7 +83,7 @@ namespace ServiceDesk_Reperation.Model
             Description = (string)ds.Tables[0].Rows[0][3];
             Status = new CaseStatus((int)ds.Tables[0].Rows[0][4]);
             CreationDate = Convert.ToDateTime(ds.Tables[0].Rows[0][5]);
-            Parts = new List<Part>();
+            Parts = new ObservableCollection<Part>();
         }
 
         public void updateCase()
@@ -124,7 +125,7 @@ namespace ServiceDesk_Reperation.Model
             Description = (string)ds.Tables[0].Rows[0][3];
             Status = new CaseStatus((int)ds.Tables[0].Rows[0][4]);
             CreationDate = Convert.ToDateTime(ds.Tables[0].Rows[0][5]);
-            Parts = new List<Part>();
+            Parts = new ObservableCollection<Part>();
         }
 
     }

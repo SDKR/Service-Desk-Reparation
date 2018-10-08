@@ -79,6 +79,7 @@
     <Compile Include="Model\Case.cs" />
     <Compile Include="Model\ZipCode_City.cs" />
     <Compile Include="ViewModel\Commands\Command.cs" />
+    <Compile Include="ViewModel\Commands\PartsDataGridCommand.cs" />
     <Compile Include="ViewModel\Commands\DataGridCommand.cs" />
     <Compile Include="ViewModel\Commands\PageCommand.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />

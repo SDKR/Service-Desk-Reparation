@@ -28,12 +28,36 @@ namespace ServiceDesk_Reperation.ViewModel
             set { _StatusList = value; }
         }
 
+        public void ShowPart(Part para)
+        {
+            CurrentPart = para;
+            RaisePropertyChangedEvent("CurrentPart");
+        }
 
         public Case CurrentCase
         {
             get { return _currentcase; }
             set { _currentcase = value;
                 OnPropertyChanged("CurrentCase");
+            }
+        }
+
+        private List<PartStatus> _partstatuslist;
+
+        public List<PartStatus> PartStatusList
+        {
+            get { return _partstatuslist; }
+            set { _partstatuslist = value; }
+        }
+
+
+        private Part _currentpart;
+
+        public Part CurrentPart
+        {
+            get { return _currentpart; }
+            set { _currentpart = value;
+                RaiseCollectionChangedEvent("CurrentPart");
             }
         }
 
@@ -64,6 +88,8 @@ namespace ServiceDesk_Reperation.ViewModel
                 OnPropertyChanged("currentViewModel");
             }
         }
+        public PartsDataGridCommand PartsDataGridCommand { get; set; }
+
         public Command PageCommand { get; set; }
 
         public PageCommand StandardCommand { get; set; }
@@ -79,6 +105,7 @@ namespace ServiceDesk_Reperation.ViewModel
             this.PageCommand = new Command(this);
             this.StandardCommand = new PageCommand(this);
             this.DataGridCommand = new DataGridCommand(this);
+            this.PartsDataGridCommand = new PartsDataGridCommand(this);
             DataSet ds = new DataSet();
             Cases = new ObservableCollection<Case>();
             ds = DB.Query("SELECT ID FROM sager");
@@ -87,6 +114,16 @@ namespace ServiceDesk_Reperation.ViewModel
                 Cases.Add(new Case(Convert.ToInt32(ds.Tables[0].Rows[i][0])));
             }
             this.PageAccept = new PageCommand(this);
+            StatusList = new List<CaseStatus>();
+            for (int i = 1; i < 7; i++)
+            {
+                StatusList.Add(new CaseStatus(i));
+            }
+            PartStatusList = new List<PartStatus>();
+            for (int i = 1; i < 5; i++)
+            {
+                PartStatusList.Add(new PartStatus(i));
+            }
         }
 
         public void ChangePageMethod()
@@ -102,16 +139,12 @@ namespace ServiceDesk_Reperation.ViewModel
 
         public void ShowRepairList()
         {
-            currentViewModel = new KoibAccept();
+            CurrentCase.GetParts();
+            currentViewModel = new ChangeOfBuy();
         }
         public void OpenCase(Case current)
         {
             previouspage = currentViewModel;
-            StatusList = new List<CaseStatus>();
-            for (int i = 1; i < 7; i++)
-            {
-                StatusList.Add(new CaseStatus(i));
-            }
             currentViewModel = new OpretReparation();
             CurrentCase = current;
         }
@@ -120,6 +153,11 @@ namespace ServiceDesk_Reperation.ViewModel
             CurrentCase.updateCase();
             CurrentCase.Refresh();
             currentViewModel = previouspage;
+        }
+        public void SavePart()
+        {
+            CurrentPart.Status.UpdateStatus();
+            CurrentPart.updatePart();
         }
     }
 }
