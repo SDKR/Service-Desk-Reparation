@@ -62,6 +62,8 @@ namespace ServiceDesk_Reperation.ViewModel
 
         public DataGridCommand DataGridCommand { get; set; }
 
+        public PageCommand PageSendUpdate { get; set; }
+
         public PageChanger()
         {
             this.DB = new DBObject();
@@ -69,6 +71,7 @@ namespace ServiceDesk_Reperation.ViewModel
             this.PageCommand = new Command(this);
             this.BackCommand = new PageCommand(this);
             this.DataGridCommand = new DataGridCommand(this);
+            this.PageSendUpdate = new PageCommand(this);
             DataSet ds = new DataSet();
             Cases = new ObservableCollection<Case>();
             ds = DB.Query("SELECT ID FROM sager");
@@ -77,6 +80,12 @@ namespace ServiceDesk_Reperation.ViewModel
                 Cases.Add(new Case(Convert.ToInt32(ds.Tables[0].Rows[i][0])));
             }
             this.PageAccept = new PageCommand(this);
+        }
+
+        public void ShowSendUpdate()
+        {
+            previouspage = currentViewModel;
+            currentViewModel = new SendUpdate();
         }
 
         public void ChangePageMethod()

@@ -26,7 +26,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" Text="{Binding CurrentCase.PC.CPU, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.RAM, Mode=TwoWay}" Margin="488,251,0,0" VerticalAlignment="Top" Width="165"></TextBox>
         <TextBox HorizontalAlignment="Left" Text="{Binding CurrentCase.PC.Storage, Mode=TwoWay}" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <Button Content="Slet" HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Button Content="Gem" HorizontalAlignment="Left" Margin="488,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Button Content="Luk" Command="{Binding BackCommand}" CommandParameter="ChangebackMethod" HorizontalAlignment="Left" Margin="578,380,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
         <Label Content="Producent" HorizontalAlignment="Left" Margin="414,60,0,0" VerticalAlignment="Top"/>
         <Label Content="SerieNr" HorizontalAlignment="Left" Margin="414,135,0,0" VerticalAlignment="Top"/>
