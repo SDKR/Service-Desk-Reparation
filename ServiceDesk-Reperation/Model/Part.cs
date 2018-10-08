@@ -1,4 +1,5 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
+using ServiceDesk_Reperation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.Model
 {
-    class Part
+    class Part : ObservableObject
     {
         private int _ID;
         private int _caseID;
@@ -31,13 +32,17 @@ namespace ServiceDesk_Reperation.Model
         public string PartName
         {
             get { return _partname; }
-            set { _partname = value; }
+            set { _partname = value;
+                RaisePropertyChangedEvent("PartName");
+            }
         }
 
         public double Price
         {
             get { return _price; }
-            set { _price = value; }
+            set { _price = value;
+                RaisePropertyChangedEvent("Price");
+            }
         }
         public PartStatus Status
         {
@@ -48,7 +53,9 @@ namespace ServiceDesk_Reperation.Model
         public DateTime LastChangedDate
         {
             get { return _lastchangeddate; }
-            set { _lastchangeddate = value; }
+            set { _lastchangeddate = value;
+                RaisePropertyChangedEvent("LastChangedDate");
+            }
         }
 
         public DBObject DB
@@ -77,7 +84,7 @@ namespace ServiceDesk_Reperation.Model
 
         public void updatePart()
         {
-            DB.NonQuery($"UPDATE dele SET del = '{PartName}', pris = {Price}, status = {Status.Status}, ændringsdato = CURRENT_TIMESTAMP");
+            DB.NonQuery($"UPDATE dele SET del = '{PartName}', pris = {Price}, status = {Status.ID}, ændringsdato = CURRENT_TIMESTAMP");
             LastChangedDate = DateTime.Now;
         }
         public void deletePart()
@@ -86,7 +93,7 @@ namespace ServiceDesk_Reperation.Model
         }
         public void createPart()
         {
-            ID = Convert.ToInt32(DB.ScalarQuery($"CALL InsertPart({CaseID}, '{PartName}', {Price}, {Status.Status})"));
+            ID = Convert.ToInt32(DB.ScalarQuery($"CALL InsertPart({CaseID}, '{PartName}', {Price}, {Status.ID})"));
             LastChangedDate = DateTime.Now;
         }
     }

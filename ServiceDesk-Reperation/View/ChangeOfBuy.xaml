@@ -8,23 +8,26 @@
       Title="ChangeOfBuy">
 
     <Grid Background="White">
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="51,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="224,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="430,51,0,0" VerticalAlignment="Top" Width="120" Height="26">
-            <ComboBoxItem>På lager</ComboBoxItem>
-            <ComboBoxItem>Bestilt</ComboBoxItem>
-            <ComboBoxItem>Ny</ComboBoxItem>
-            <ComboBoxItem>Monteret</ComboBoxItem>
+        <TextBox Text="{Binding CurrentPart.PartName, Mode=TwoWay}" HorizontalAlignment="Left" Height="26" Margin="51,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112"/>
+        <TextBox Text="{Binding CurrentPart.Price, Mode=TwoWay}" HorizontalAlignment="Left" Height="26" Margin="224,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox DisplayMemberPath="Status" SelectedValue="{Binding CurrentPart.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding PartStatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="430,51,0,0" VerticalAlignment="Top" Width="120" Height="26">
         </ComboBox>
-        <Button Content="Gem" HorizontalAlignment="Left" Margin="614,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
+        <Button Command="{Binding StandardCommand}" CommandParameter="SavePart" Content="Gem" HorizontalAlignment="Left" Margin="614,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="716,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
+        <DataGrid IsReadOnly="True" ItemsSource="{Binding CurrentCase.Parts, Mode=TwoWay}" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Del" Binding="{Binding NAME}" Width="*"/>
-                <DataGridTextColumn Header="Pris" Binding="{Binding NAME}" Width="*"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding NAME}" Width="*"/>
-                <DataGridTextColumn Header="Sidst Opdataeret" Binding="{Binding NAME}" Width="*"/>
+                <DataGridTextColumn Header="Del" Binding="{Binding PartName}" Width="*"/>
+                <DataGridTextColumn Header="Pris" Binding="{Binding Price}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status.Status}" Width="*"/>
+                <DataGridTextColumn Header="Sidst Opdataeret" Binding="{Binding LastChangedDate}" Width="*"/>
             </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <MouseBinding
+                    MouseAction="LeftDoubleClick"
+                    Command="{Binding PartsDataGridCommand}"
+                    CommandParameter="{Binding CurrentCase.Parts/}">
+                </MouseBinding>
+            </DataGrid.InputBindings>
         </DataGrid>
         <Label Content="Del" HorizontalAlignment="Left" Margin="15,51,0,0" VerticalAlignment="Top" Width="36"/>
         <Label Content="Pris" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" Width="44"/>
