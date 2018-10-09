@@ -10,6 +10,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -35,6 +36,24 @@ namespace ServiceDesk_Reperation.ViewModel
             this.ChangeOfBuyMethods = new ChangeOfBuyMethods(this);
             this.OpretReparationMethods = new OpretReparationMethods(this);
             this.SendUpdateMethods = new SendUpdateMethods(this);
+        }
+        public bool DialogBox ( string msgtxt, string txt,  MessageBoxButton button )
+        {
+            MessageBoxResult result = MessageBox.Show(msgtxt, txt, button);
+            bool value;
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    value = true;
+                    break;
+                case MessageBoxResult.No:
+                    value = false;
+                    break;
+                default:
+                    value = false;
+                    break;
+            }
+            return value;
         }
 
     }

@@ -10,9 +10,9 @@
 
     <Grid Background="White">
         <Button Content="Send Update" HorizontalAlignment="Left" Margin="174,377,0,0" VerticalAlignment="Top" Width="126"/>
-        <Button Content="Annuler" Command="{Binding PageAccept}" CommandParameter="ShowRepairList" HorizontalAlignment="Left" Margin="418,377,0,0" VerticalAlignment="Top" Width="128"/>
-        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="558,85,25,94"
-                  IsReadOnly="True" CanUserDeleteRows="False" CanUserAddRows="false" ItemsSource="{Binding Cases}">
+        <Button Content="Annuler" Command="{Binding StandardCommand}" CommandParameter="SendUpdate.GoBack" HorizontalAlignment="Left" Margin="418,377,0,0" VerticalAlignment="Top" Width="128"/>
+        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" Margin="558,85,25,94"  HeadersVisibility="Column"
+                  IsReadOnly="True" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="false"  ItemsSource="{Binding StartPageMethods.CurrentCase.Parts, Mode=TwoWay}">
 
             <!--<DataGrid.LayoutTransform>
                 <TransformGroup>
@@ -34,18 +34,14 @@
                     </Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>-->
-            
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Dele" Binding="{Binding PC.Model}" Width="*"/>
-                <DataGridTextColumn Header="HDD" Binding="{Binding PC.Storage}" Width="*" />
-                <DataGridTextColumn Header="RAM" Binding="{Binding PC.RAM}" Width="*" />
-                <DataGridTextColumn Header="CPU" Binding="{Binding PC.CPU}" Width="*" />
-                <DataGridTextColumn Header="OS" Binding="{Binding PC.OS}" Width="*" />
-            </DataGrid.Columns>
-            
-        </DataGrid>
-        <TextBox HorizontalAlignment="Left" Height="272" Margin="174,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
-        <Label Content="Note til Opdatering" HorizontalAlignment="Left" Margin="45,84,0,0" VerticalAlignment="Top"/>
 
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Dele" Binding="{Binding PartName}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status.Status}" Width="*" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Description , Mode=TwoWay}" Height="272" Margin="174,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
+        <Label Content="Note til Opdatering" HorizontalAlignment="Left" Margin="45,84,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

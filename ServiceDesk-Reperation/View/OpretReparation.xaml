@@ -16,7 +16,7 @@
         <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Telephone , Mode=TwoWay}"  Height="23" Margin="84,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Email , Mode=TwoWay}" Height="23" Margin="84,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Description , Mode=TwoWay}" Height="163" Margin="84,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <Label Content="Oprettelses af nyt produkt" HorizontalAlignment="Left" Margin="84,15,0,0" VerticalAlignment="Top" Width="165"/>
+        <Label Content="Reparation" HorizontalAlignment="Left" Margin="84,15,0,0" VerticalAlignment="Top" Width="118" FontSize="20"/>
         <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.Manufacturer , Mode=TwoWay}" Height="23" Margin="488,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding StartPageMethods.CurrentCase.PC.Model, Mode=TwoWay}" Margin="488,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding StartPageMethods.CurrentCase.PC.SerialNumber, Mode=TwoWay}"  Margin="488,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>

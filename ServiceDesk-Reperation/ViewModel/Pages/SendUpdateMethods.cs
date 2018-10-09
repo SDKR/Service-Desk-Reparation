@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.ViewModel.Pages
 {
-    class SendUpdateMethods : Navigator
+    class SendUpdateMethods : ObservableObject
     {
         private PageChanger PageChanger { get; set; }
 
@@ -14,5 +14,12 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         {
             PageChanger = pageChanger;
         }
+
+        public void GoBack()
+        {
+            PageChanger.StartPageMethods.CurrentCase.GetParts();
+            PageChanger.ChangePageTo("ChangeOfBuy");
+        }
+
     }
 }

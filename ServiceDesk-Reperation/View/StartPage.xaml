@@ -25,7 +25,6 @@
                 </MouseBinding>
             </DataGrid.InputBindings>
         </DataGrid>
-        <Button Content="Slet" HorizontalAlignment="Left" Margin="561,22,0,0" VerticalAlignment="Top" Width="104" Height="71"/>
         <Button Content="Opret" Command="{Binding StandardCommand}" CommandParameter="StartPage.CreateCase" HorizontalAlignment="Left" Margin="696,22,0,0" VerticalAlignment="Top" Width="86" Height="71"></Button>
     </Grid>
 </Page>
