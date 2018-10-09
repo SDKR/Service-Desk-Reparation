@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ServiceDesk_Reperation.ViewModel.Pages
 {
@@ -11,6 +12,36 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
     {
         private List<PartStatus> _partstatuslist;
         private PageChanger PageChanger { get; set; }
+        private Visibility visibility;
+
+        public Visibility Visibility
+        {
+            get { return visibility; }
+            set { visibility = value;
+                RaisePropertyChangedEvent("Visibility");
+                RaisePropertyChangedEvent("InverseVisibility");
+            }
+        }
+
+        public Visibility InverseVisibility
+        {
+            get {
+                if(visibility.Equals(Visibility.Hidden))
+                return Visibility.Visible;
+                else
+                return Visibility.Hidden;
+            }
+            set
+            {
+                if (value.Equals(Visibility.Hidden))
+                    visibility = Visibility.Visible;
+                else
+                 visibility = Visibility.Hidden;
+                 RaisePropertyChangedEvent("Visibility");
+                 RaisePropertyChangedEvent("InverseVisibility");
+            }
+        }
+
 
         public List<PartStatus> PartStatusList
         {
@@ -32,6 +63,7 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
 
         public ChangeOfBuyMethods(PageChanger pageChanger)
         {
+            Visibility = Visibility.Visible;
             PageChanger = pageChanger;
             PartStatusList = new List<PartStatus>();
             for (int i = 1; i < 5; i++)
@@ -46,6 +78,7 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         }
         public void ShowPart(Part para)
         {
+            Visibility = Visibility.Hidden;
             CurrentPart = para;
             RaisePropertyChangedEvent("CurrentPart");
         }
@@ -54,8 +87,15 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
             CurrentPart.Status.UpdateStatus();
             CurrentPart.updatePart();
         }
+        public void DeletePart()
+        {
+            CurrentPart.deletePart();
+            PageChanger.StartPageMethods.CurrentCase.GetParts();
+            ClearFields();
+        }
         public void ClearFields()
         {
+            Visibility = Visibility.Visible;
             CurrentPart = new Part();
         }
         public void Create()
@@ -65,6 +105,7 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
                 CurrentPart.Status.ID = 1;
                 CurrentPart.CaseID = PageChanger.StartPageMethods.CurrentCase.ID;
                 CurrentPart.createPart();
+                PageChanger.StartPageMethods.CurrentCase.GetParts();
             }
         }
         public void GoBack()

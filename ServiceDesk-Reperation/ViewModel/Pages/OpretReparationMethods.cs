@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ServiceDesk_Reperation.ViewModel.Pages
 {
@@ -42,7 +43,9 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
 
         public void ShowAccepts()
         {
+            PageChanger.ChangeOfBuyMethods.Visibility = Visibility.Visible;
             PageChanger.StartPageMethods.CurrentCase.GetParts();
+            PageChanger.ChangeOfBuyMethods.CurrentPart = new Part();
             PageChanger.ChangePageTo("ChangeOfBuy");
         }
         public void GoBack()

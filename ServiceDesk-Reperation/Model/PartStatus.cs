@@ -34,6 +34,7 @@ namespace ServiceDesk_Reperation.Model
         public PartStatus()
         {
             Status = "ny";
+            ID = 0;
         }
 
         public PartStatus(int ID)
