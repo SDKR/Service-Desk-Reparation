@@ -38,14 +38,5 @@ namespace ServiceDesk_Reperation.ViewModel
             var property = GetType().GetProperty(page);
             CurrentPage = property.GetValue(this, null) as Page;
         }
-
-
-
-
-
-
-
-
-
     }
 }

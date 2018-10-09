@@ -14,7 +14,7 @@
         </ComboBox>
         <Button Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.SavePart" Content="Gem" HorizontalAlignment="Left" Margin="614,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="716,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <DataGrid IsReadOnly="True" ItemsSource="{Binding StartPageMethods.CurrentCase.Parts, Mode=TwoWay}" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
+        <DataGrid IsSynchronizedWithCurrentItem="True" IsReadOnly="True" ItemsSource="{Binding StartPageMethods.CurrentCase.Parts, Mode=TwoWay}" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Del" Binding="{Binding PartName}" Width="*"/>
                 <DataGridTextColumn Header="Pris" Binding="{Binding Price}" Width="*"/>
