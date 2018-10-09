@@ -90,7 +90,7 @@ namespace ServiceDesk_Reperation.Model
 
         public void updatePart()
         {
-            DB.NonQuery($"UPDATE dele SET del = '{PartName}', pris = {Price}, status = {Status.ID}, ændringsdato = CURRENT_TIMESTAMP");
+            DB.NonQuery($"UPDATE dele SET del = '{PartName}', pris = {Price}, status = {Status.ID}, ændringsdato = CURRENT_TIMESTAMP WHERE ID = {ID}");
             LastChangedDate = DateTime.Now;
         }
         public void deletePart()
