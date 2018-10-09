@@ -28,7 +28,7 @@ namespace ServiceDesk_Reperation.ViewModel.Commands
         public void Execute(object parameter)
         {
             Part para = (Part)parameter;
-            this.ViewModel.ShowPart(para);
+            this.ViewModel.ChangeOfBuyMethods.ShowPart(para);
         }
     }
 }

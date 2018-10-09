@@ -78,12 +78,16 @@
     <Compile Include="Model\Reparation.cs" />
     <Compile Include="Model\Case.cs" />
     <Compile Include="Model\ZipCode_City.cs" />
-    <Compile Include="ViewModel\Commands\Command.cs" />
     <Compile Include="ViewModel\Commands\PartsDataGridCommand.cs" />
     <Compile Include="ViewModel\Commands\DataGridCommand.cs" />
     <Compile Include="ViewModel\Commands\PageCommand.cs" />
+    <Compile Include="ViewModel\Navigator.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="ViewModel\PageChanger.cs" />
+    <Compile Include="ViewModel\Pages\ChangeOfBuyMethods.cs" />
+    <Compile Include="ViewModel\Pages\OpretReparationMethods.cs" />
+    <Compile Include="ViewModel\Pages\SendUpdateMethods.cs" />
+    <Compile Include="ViewModel\Pages\StartPageMethods.cs" />
     <Compile Include="ViewModel\Presenter.cs" />
     <Compile Include="View\ChangeOfBuy.xaml.cs">
       <DependentUpon>ChangeOfBuy.xaml</DependentUpon>
@@ -144,6 +148,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

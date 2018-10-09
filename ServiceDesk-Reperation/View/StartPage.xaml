@@ -10,7 +10,7 @@
 
     <Grid>
         <DataGrid Height="288" HorizontalGridLinesBrush="#FFBDB5B5" CanUserDeleteRows="False" RowHeight="22" IsReadOnly="True" CanUserAddRows="false" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10"
-                  ItemsSource="{Binding Cases}">
+                  ItemsSource="{Binding StartPageMethods.Cases}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="*"/>
                 <DataGridTextColumn Header="Navn" Binding="{Binding Customer.Name}" Width="*"/>
@@ -21,11 +21,11 @@
                 <MouseBinding
                     MouseAction="LeftDoubleClick"
                     Command="{Binding DataGridCommand}"
-                    CommandParameter="{Binding Cases/}">
+                    CommandParameter="{Binding StartPageMethods.Cases/}">
                 </MouseBinding>
             </DataGrid.InputBindings>
         </DataGrid>
         <Button Content="Slet" HorizontalAlignment="Left" Margin="561,22,0,0" VerticalAlignment="Top" Width="104" Height="71"/>
-        <Button Content="Opret" Command="{Binding PageCommand}" HorizontalAlignment="Left" Margin="696,22,0,0" VerticalAlignment="Top" Width="86" Height="71"></Button>
+        <Button Content="Opret" Command="{Binding StandardCommand}" CommandParameter="StartPage.CreateCase" HorizontalAlignment="Left" Margin="696,22,0,0" VerticalAlignment="Top" Width="86" Height="71"></Button>
     </Grid>
 </Page>

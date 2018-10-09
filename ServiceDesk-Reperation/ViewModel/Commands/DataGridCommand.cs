@@ -28,7 +28,7 @@ namespace ServiceDesk_Reperation.ViewModel.Commands
         public void Execute(object parameter)
         {
             Case para = (Case)parameter;
-            this.ViewModel.OpenCase(para);
+            this.ViewModel.StartPageMethods.OpenCase(para);
         }
     }
 }
