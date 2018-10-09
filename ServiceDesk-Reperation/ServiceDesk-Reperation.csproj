@@ -81,6 +81,7 @@
     <Compile Include="ViewModel\Commands\PartsDataGridCommand.cs" />
     <Compile Include="ViewModel\Commands\DataGridCommand.cs" />
     <Compile Include="ViewModel\Commands\PageCommand.cs" />
+    <Compile Include="ViewModel\Commands\ValidationCommand.cs" />
     <Compile Include="ViewModel\Navigator.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="ViewModel\PageChanger.cs" />

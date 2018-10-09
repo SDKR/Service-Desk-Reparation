@@ -33,6 +33,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _name; }
             set { _name = value;
                 RaisePropertyChangedEvent("Name");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -41,6 +42,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _address; }
             set { _address = value;
                 RaisePropertyChangedEvent("Address");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -49,6 +51,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _zipCode; }
             set { _zipCode = value;
                 RaisePropertyChangedEvent("ZipCode");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -57,6 +60,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _telephone; }
             set { _telephone = value;
                 RaisePropertyChangedEvent("Telephone");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -65,6 +69,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _email; }
             set { _email = value;
                 RaisePropertyChangedEvent("Email");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -78,6 +83,7 @@ namespace ServiceDesk_Reperation.Model
         public Customer()
         {
             DB = new DBObject();
+            ZipCode = new ZipCode_City();
         }
 
         public Customer(int ID)

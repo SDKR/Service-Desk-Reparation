@@ -45,20 +45,18 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
 
         public void OpenCase(Case current)
         {
+            PageChanger.OpretReparationMethods.Visibility = System.Windows.Visibility.Visible;
+            PageChanger.OpretReparationMethods.SaveBtnTxt = "Gem";
             CurrentCase = current;
             PageChanger.ChangePageTo("OpretReparation");
         }
 
         public void CreateCase()
         {
-            PageChanger.ChangePageTo("OpretReparation");
             CurrentCase = new Case();
+            PageChanger.OpretReparationMethods.Visibility = System.Windows.Visibility.Hidden;
+            PageChanger.OpretReparationMethods.SaveBtnTxt = "Opret";
+            PageChanger.ChangePageTo("OpretReparation");
         }
-
-        public void DeleteCase(Case current)
-        {
-
-        }
-
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ServiceDesk_Reperation.Model
 {
@@ -26,6 +27,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _ID; }
             set { _ID = value;
                 RaisePropertyChangedEvent("ID");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -34,6 +36,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _manufacturer; }
             set { _manufacturer = value;
                 RaisePropertyChangedEvent("Manufacturer");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
         
@@ -42,6 +45,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _model; }
             set { _model = value;
                 RaisePropertyChangedEvent("Model");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -50,6 +54,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _serialnumber; }
             set { _serialnumber = value;
                 RaisePropertyChangedEvent("SerialNumber");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
 
@@ -58,6 +63,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _os; }
             set { _os = value;
                 RaisePropertyChangedEvent("OS");
+                CommandManager.InvalidateRequerySuggested();
             }
         }
 
@@ -66,6 +72,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _cpu; }
             set { _cpu = value;
                 RaisePropertyChangedEvent("CPU");
+                CommandManager.InvalidateRequerySuggested();
             }
         }
 
@@ -74,6 +81,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _ram; }
             set { _ram = value;
                 RaisePropertyChangedEvent("RAM");
+                CommandManager.InvalidateRequerySuggested();
             }
         }
 
@@ -82,6 +90,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _storage; }
             set { _storage = value;
                 RaisePropertyChangedEvent("Storage");
+                CommandManager.InvalidateRequerySuggested();
             }
         }
 

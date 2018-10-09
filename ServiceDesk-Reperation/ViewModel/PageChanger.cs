@@ -25,6 +25,7 @@ namespace ServiceDesk_Reperation.ViewModel
         public PartsDataGridCommand PartsDataGridCommand { get; set; }
         public PageCommand StandardCommand { get; set; }
         public DataGridCommand DataGridCommand { get; set; }
+        public ValidationCommand ValidationCommand { get; set; }
 
         public PageChanger()
         {
@@ -32,6 +33,7 @@ namespace ServiceDesk_Reperation.ViewModel
             this.StandardCommand = new PageCommand(this);
             this.DataGridCommand = new DataGridCommand(this);
             this.PartsDataGridCommand = new PartsDataGridCommand(this);
+            this.ValidationCommand = new ValidationCommand(this);
             this.StartPageMethods = new StartPageMethods(this);
             this.ChangeOfBuyMethods = new ChangeOfBuyMethods(this);
             this.OpretReparationMethods = new OpretReparationMethods(this);

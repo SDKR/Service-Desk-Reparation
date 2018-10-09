@@ -12,6 +12,27 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
     {
         private PageChanger PageChanger { get; set; }
         private List<CaseStatus> _StatusList;
+        private string _SaveBtnTxt;
+
+        public string SaveBtnTxt
+        {
+            get { return _SaveBtnTxt; }
+            set { _SaveBtnTxt = value;
+                RaisePropertyChangedEvent("SaveBtnTxt");
+            }
+        }
+
+        private Visibility visibility;
+
+        public Visibility Visibility
+        {
+            get { return visibility; }
+            set
+            {
+                visibility = value;
+                RaisePropertyChangedEvent("Visibility");
+            }
+        }
 
         public List<CaseStatus> StatusList
         {
@@ -31,14 +52,24 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
 
         public void SaveCase()
         {
-            PageChanger.StartPageMethods.CurrentCase.updateCase();
-            PageChanger.StartPageMethods.CurrentCase.Refresh();
+            if (Visibility == Visibility.Hidden)
+            {
+                PageChanger.StartPageMethods.CurrentCase.createCase();
+                PageChanger.StartPageMethods.CurrentCase.Refresh();
+                PageChanger.StartPageMethods.Cases.Add(PageChanger.StartPageMethods.CurrentCase);
+            }
+            else
+            {
+                PageChanger.StartPageMethods.CurrentCase.updateCase();
+                PageChanger.StartPageMethods.CurrentCase.Refresh();
+            }
             PageChanger.ChangePageTo("StartPage");
         }
         public void DeleteCase()
         {
             PageChanger.StartPageMethods.CurrentCase.deleteCase();
             PageChanger.StartPageMethods.Cases.Remove(PageChanger.StartPageMethods.CurrentCase);
+            PageChanger.ChangePageTo("StartPage");
         }
 
         public void ShowAccepts()

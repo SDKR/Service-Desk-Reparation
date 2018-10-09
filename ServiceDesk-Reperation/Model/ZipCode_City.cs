@@ -49,6 +49,13 @@ namespace ServiceDesk_Reperation.Model
         public ZipCode_City()
         {
             DB = new DBObject();
+            DataSet ds = new DataSet();
+            ds = DB.Query("Select * From postnrby");
+            CityList = new List<ZipCode_City>();
+            foreach (DataRow item in ds.Tables[0].Rows)
+            {
+                CityList.Add(new ZipCode_City((int)item[0], (string)item[1]));
+            }
         }
 
         public ZipCode_City(int Zip)

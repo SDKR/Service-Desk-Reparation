@@ -48,6 +48,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _description; }
             set { _description = value;
                 RaisePropertyChangedEvent("Description");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
         public CaseStatus Status
@@ -55,6 +56,7 @@ namespace ServiceDesk_Reperation.Model
             get { return _status; }
             set { _status = value;
                 RaisePropertyChangedEvent("Status");
+                RaisePropertyChangedEvent("ValidationCommand");
             }
         }
         public DateTime CreationDate
@@ -110,15 +112,20 @@ namespace ServiceDesk_Reperation.Model
         }
         public void deleteCase()
         {
-            DB.NonQuery($"DELETE FROM sager WHERE ID = {ID}");
-            Customer.deleteCustomer();
-            PC.deletePC();
+            GetParts();
+            foreach (Part item in Parts)
+            {
+                item.deletePart();
+            }
+            DB.NonQuery($"DELETE FROM `sager` WHERE `sager`.`ID` = {ID}");
+            DB.NonQuery($"DELETE FROM kunde WHERE ID = {Customer.ID}");
+            DB.NonQuery($"DELETE FROM pc WHERE ID = {PC.ID}");
         }
         public void createCase()
         {
             Customer.createCustomer();
             PC.createPC();
-            ID = Convert.ToInt32(DB.ScalarQuery($"CALL InsertCase({Customer.ID}, {PC.ID}, '{Description}', '{Status.ID}'"));
+            ID = Convert.ToInt32(DB.ScalarQuery($"CALL InsertCase({Customer.ID}, {PC.ID}, '{Description}', '{Status.ID}')"));
             CreationDate = DateTime.Now;
         }
         public void GetParts()
