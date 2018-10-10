@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ServiceDesk_Reperation.ViewModel.Commands
 {
-    class ValidationCommand : ICommand
+    class ValidationCommand : ObservableObject, ICommand
     {
         public PageChanger ViewModel { get; set; }
+        private string errormessage;
+
+        public string ErrorMessage
+        {
+            get { return errormessage; }
+            set { errormessage = value;
+                RaisePropertyChangedEvent("ErrorMessage");
+            }
+            
+        }
+
 
         public ValidationCommand(PageChanger viewModel)
         {
@@ -24,19 +36,29 @@ namespace ServiceDesk_Reperation.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
+            bool noget = true; 
             foreach (var item in CheckIfNull())
             {
                 if (item)
-                    return false;
+                    noget = false;
             }
-            if (!CheckZip() || !CheckEmail())
+            if (!noget)
             {
-                Console.WriteLine("FAIL");
+                ErrorMessage = "Et eller flere felter mangler at blive udfyldt!";
+                return noget;
+            }           
+            else if (!CheckZip())
+            {
+                ErrorMessage = "Du mangler at udfylde Postnr rigtigt!";
+                return false;
+            }
+            else if (!CheckEmail())
+            {
+                ErrorMessage = "Du mangler at udfylde Email rigtigt!";
                 return false;
             }
             else
             {
-                Console.WriteLine("Success");
                 return true;
             }
         }

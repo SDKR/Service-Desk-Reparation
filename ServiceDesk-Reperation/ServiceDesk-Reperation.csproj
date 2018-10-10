@@ -70,6 +70,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBConnect\DBObject.cs" />
+    <Compile Include="DBConnect\Mail.cs" />
     <Compile Include="Model\CaseStatus.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Part.cs" />

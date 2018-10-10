@@ -47,6 +47,7 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         {
             PageChanger.OpretReparationMethods.Visibility = System.Windows.Visibility.Visible;
             PageChanger.OpretReparationMethods.SaveBtnTxt = "Gem";
+            PageChanger.ValidationCommand.ErrorMessage = "";
             CurrentCase = current;
             PageChanger.ChangePageTo("OpretReparation");
         }

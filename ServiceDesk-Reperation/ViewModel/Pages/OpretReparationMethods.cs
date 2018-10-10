@@ -49,7 +49,16 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
                 StatusList.Add(new CaseStatus(i));
             }
         }
-
+        public void DeleteCase()
+        {
+            bool WarningBox = PageChanger.DialogBox("Vil du slette ?", "Warning", MessageBoxButton.YesNo);
+            if (WarningBox)
+            {
+                PageChanger.StartPageMethods.CurrentCase.deleteCase();
+                PageChanger.StartPageMethods.Cases.Remove(PageChanger.StartPageMethods.CurrentCase);
+                PageChanger.ChangePageTo("StartPage");
+            }
+        }
         public void SaveCase()
         {
             if (Visibility == Visibility.Hidden)
@@ -63,15 +72,9 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
                 PageChanger.StartPageMethods.CurrentCase.updateCase();
                 PageChanger.StartPageMethods.CurrentCase.Refresh();
             }
+            bool WarningBox = PageChanger.DialogBox("Det er nu blevet gemt!", "Information", MessageBoxButton.OK);
             PageChanger.ChangePageTo("StartPage");
         }
-        public void DeleteCase()
-        {
-            PageChanger.StartPageMethods.CurrentCase.deleteCase();
-            PageChanger.StartPageMethods.Cases.Remove(PageChanger.StartPageMethods.CurrentCase);
-            PageChanger.ChangePageTo("StartPage");
-        }
-
         public void ShowAccepts()
         {
             PageChanger.ChangeOfBuyMethods.Visibility = Visibility.Visible;

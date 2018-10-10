@@ -87,11 +87,15 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
             CurrentPart.Status.UpdateStatus();
             CurrentPart.updatePart();
         }
-        public void DeletePart()
+    public void DeletePart()
         {
-            CurrentPart.deletePart();
-            PageChanger.StartPageMethods.CurrentCase.GetParts();
-            ClearFields();
+            bool WarningBox = PageChanger.DialogBox("Vil du slette ?", "Warning", MessageBoxButton.YesNo);
+            if (WarningBox)
+            {
+                CurrentPart.deletePart();
+                PageChanger.StartPageMethods.CurrentCase.GetParts();
+                ClearFields();
+            }
         }
         public void ClearFields()
         {

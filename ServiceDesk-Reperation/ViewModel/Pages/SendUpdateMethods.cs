@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceDesk_Reperation.DBConnect;
 
 namespace ServiceDesk_Reperation.ViewModel.Pages
 {
@@ -20,6 +21,29 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
             PageChanger.StartPageMethods.CurrentCase.GetParts();
             PageChanger.ChangePageTo("ChangeOfBuy");
         }
+
+        public void GemUpdate()
+        {
+            Mail mail = new Mail();
+            string emne = PageChanger.StartPageMethods.CurrentCase.ID.ToString();
+            string email = PageChanger.StartPageMethods.CurrentCase.Customer.Email;
+            string person = PageChanger.StartPageMethods.CurrentCase.Customer.Name;
+            mail.SendMail($"Opdatering på sag: {emne}", Update, email, person);
+
+            PageChanger.ChangePageTo("ChangeOfBuy");
+
+        }
+
+        private string _update;
+
+        public string Update
+        {
+            get { return _update; }
+            set { _update = value;
+                RaisePropertyChangedEvent("Update");
+            }
+        }
+
 
     }
 }

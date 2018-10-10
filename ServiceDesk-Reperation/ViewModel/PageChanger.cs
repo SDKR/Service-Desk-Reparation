@@ -39,7 +39,7 @@ namespace ServiceDesk_Reperation.ViewModel
             this.OpretReparationMethods = new OpretReparationMethods(this);
             this.SendUpdateMethods = new SendUpdateMethods(this);
         }
-        public bool DialogBox ( string msgtxt, string txt,  MessageBoxButton button )
+        public bool DialogBox(string msgtxt, string txt, MessageBoxButton button)
         {
             MessageBoxResult result = MessageBox.Show(msgtxt, txt, button);
             bool value;
@@ -51,12 +51,14 @@ namespace ServiceDesk_Reperation.ViewModel
                 case MessageBoxResult.No:
                     value = false;
                     break;
+                case MessageBoxResult.OK:
+                    value = true;
+                    break;
                 default:
                     value = false;
                     break;
             }
             return value;
         }
-
     }
 }
