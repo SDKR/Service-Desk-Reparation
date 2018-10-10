@@ -59,6 +59,7 @@ namespace ServiceDesk_Reperation.ViewModel.Commands
             }
             else
             {
+                ErrorMessage = "";
                 return true;
             }
         }

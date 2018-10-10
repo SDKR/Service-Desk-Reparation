@@ -34,7 +34,8 @@ namespace ServiceDesk_Reperation.Model
 
         public CaseStatus()
         {
-            Status = "New";
+            ID = 1;
+            Status = "new";
         }
 
         public CaseStatus(int ID)

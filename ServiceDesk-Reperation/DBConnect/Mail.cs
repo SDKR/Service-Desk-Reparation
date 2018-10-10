@@ -1,4 +1,5 @@
-﻿using ServiceDesk_Reperation.ViewModel;
+﻿using ServiceDesk_Reperation.Model;
+using ServiceDesk_Reperation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+
 namespace ServiceDesk_Reperation.DBConnect
 {
     class Mail
     {
 
-        public void SendMail(string Emne, string Body, string Mail, string Person)
+        public void SendMail(string Emne, Case sag, string Body, string Mail, string Person)
         {
             var fromAddress = new MailAddress("tec.gruppe14@gmail.com", "Gruppe14");
             var toAddress = new MailAddress(Mail, Person);
             const string fromPassword = "kodeord0";
             string subject = Emne;
-            string body = "";
+            string body = CreateBody(sag, Body);
+            
 
             var smtp = new SmtpClient
             {
@@ -38,6 +41,7 @@ namespace ServiceDesk_Reperation.DBConnect
             {
                 try
                 {
+                    message.IsBodyHtml = true;
                     smtp.Send(message);
                     MessageBox.Show("Email blev sendt!");
                 }
@@ -47,6 +51,33 @@ namespace ServiceDesk_Reperation.DBConnect
                 }
                 
             }
+        }
+
+        public string CreateBody( Case sag, String broedtekst)
+        {
+            string body = System.IO.File.ReadAllText(@"Resources\body.html");
+            string vare = System.IO.File.ReadAllText(@"Resources\vare.html");
+
+            string allevare = null;
+            double pris = 225;
+
+            foreach (Part item in sag.Parts)
+            {
+                string temp = vare;
+                temp = temp.Replace("///Vare///",item.PartName);
+                temp = temp.Replace("///status///", item.Status.Status);
+                temp = temp.Replace("///pris///", item.Price.ToString());
+                allevare += temp;
+                pris += item.Price;
+            }
+
+            body = body.Replace("///vare///", allevare);
+            body = body.Replace("///broedtekst///", broedtekst);
+            body = body.Replace("///ordernr///", sag.ID.ToString());
+            body = body.Replace("///navn///", sag.Customer.Name);
+            body = body.Replace("///totalpris///", pris.ToString());
+
+            return body;
         }
     }
 }
