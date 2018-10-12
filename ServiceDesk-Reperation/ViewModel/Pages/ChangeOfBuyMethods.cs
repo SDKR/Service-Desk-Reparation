@@ -84,8 +84,12 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         }
         public void SavePart()
         {
-            CurrentPart.Status.UpdateStatus();
-            CurrentPart.updatePart();
+            bool WarningBox = PageChanger.DialogBox("Vil du updater delen?", "Warning", MessageBoxButton.YesNo);
+            if (WarningBox)
+            {
+                CurrentPart.Status.UpdateStatus();
+                CurrentPart.updatePart();
+            }
         }
     public void DeletePart()
         {
