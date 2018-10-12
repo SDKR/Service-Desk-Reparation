@@ -104,12 +104,16 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         }
         public void Create()
         {
-            if (CurrentPart.Status.ID == 0)
+            bool WarningBox = PageChanger.DialogBox("Vil du Oprette en ny del?", "Warning", MessageBoxButton.YesNo);
+            if (WarningBox)
             {
-                CurrentPart.Status.ID = 1;
-                CurrentPart.CaseID = PageChanger.StartPageMethods.CurrentCase.ID;
-                CurrentPart.createPart();
-                PageChanger.StartPageMethods.CurrentCase.GetParts();
+                if (CurrentPart.Status.ID == 0)
+                {
+                    CurrentPart.Status.ID = 1;
+                    CurrentPart.CaseID = PageChanger.StartPageMethods.CurrentCase.ID;
+                    CurrentPart.createPart();
+                    PageChanger.StartPageMethods.CurrentCase.GetParts();
+                }
             }
         }
         public void GoBack()
