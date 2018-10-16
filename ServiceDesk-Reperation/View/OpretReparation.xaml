@@ -9,42 +9,47 @@
       Title="OpretReparation">
 
     <Grid Background="White">
-        <Button Visibility="{Binding OpretReparationMethods.Visibility, UpdateSourceTrigger=PropertyChanged}" Content="Vis Købsaccept" Command="{Binding StandardCommand}" CommandParameter="OpretReparation.ShowAccepts" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
-        <Button Visibility="{Binding OpretReparationMethods.Visibility, UpdateSourceTrigger=PropertyChanged}" Content="Slet" Command="{Binding StandardCommand}" CommandParameter="OpretReparation.DeleteCase" HorizontalAlignment="Left" Margin="537,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
-        <TextBox Name="Opret_Name" Text="{Binding StartPageMethods.CurrentCase.Customer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="84,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="84,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,138,0,0" TextWrapping="Wrap" Text="{Binding StartPageMethods.CurrentCase.Customer.ZipCode.Zip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" MaxLength="4" Width="64"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Telephone , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="23" Margin="84,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="29"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Email , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="84,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Description , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="163" Margin="84,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <Label Content="Reparation" HorizontalAlignment="Left" Margin="84,15,0,0" VerticalAlignment="Top" Width="118" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.Manufacturer , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="488,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding StartPageMethods.CurrentCase.PC.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="488,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Text="{Binding StartPageMethods.CurrentCase.PC.SerialNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="488,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.OS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="488,170,0,0" VerticalAlignment="Top" Width="165" Height="23" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="488,209,0,0" Text="{Binding StartPageMethods.CurrentCase.PC.CPU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.RAM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="488,251,0,0" VerticalAlignment="Top" Width="165" MaxLength="254"></TextBox>
-        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.Storage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="488,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
-        <Button Content="{Binding OpretReparationMethods.SaveBtnTxt, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ValidationCommand, UpdateSourceTrigger=PropertyChanged}" CommandParameter="OpretReparation.SaveCase"  HorizontalAlignment="Left" Margin="488,368,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
-        <Button Content="Luk" Command="{Binding StandardCommand}" CommandParameter="OpretReparation.GoBack" HorizontalAlignment="Left" Margin="578,368,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
-        <Label Content="Producent" HorizontalAlignment="Left" Margin="414,60,0,0" VerticalAlignment="Top"/>
-        <Label Content="SerieNr" HorizontalAlignment="Left" Margin="414,135,0,0" VerticalAlignment="Top"/>
-        <Label Content="OS" HorizontalAlignment="Left" Margin="414,170,0,0" VerticalAlignment="Top"/>
-        <Label Content="Model" HorizontalAlignment="Left" Margin="414,95,0,0" VerticalAlignment="Top"/>
-        <Label Content="CPU" HorizontalAlignment="Left" Margin="414,209,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ram" HorizontalAlignment="Left" Margin="414,251,0,0" VerticalAlignment="Top"/>
-        <Label Content="HDD" HorizontalAlignment="Left" Margin="414,288,0,0" VerticalAlignment="Top"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="414,328,0,0" VerticalAlignment="Top"/>
-        <Label Content="Navn" HorizontalAlignment="Left" Margin="19,57,0,0" VerticalAlignment="Top"/>
-        <Label Content="Adresse" HorizontalAlignment="Left" Margin="19,95,0,0" VerticalAlignment="Top"/>
-        <Label Content="PostNr" HorizontalAlignment="Left" Margin="19,134,0,0" VerticalAlignment="Top"/>
-        <Label Content="Telefon" HorizontalAlignment="Left" Margin="19,170,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="19,203,0,0" VerticalAlignment="Top"/>
-        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="Opret_Status" DisplayMemberPath="Status" SelectedValue="{Binding StartPageMethods.CurrentCase.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding OpretReparationMethods.StatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="488,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
+        <Button Visibility="{Binding OpretReparationMethods.Visibility, UpdateSourceTrigger=PropertyChanged}" Content="Vis Købsaccept" Command="{Binding StandardCommand}" CommandParameter="OpretReparation.ShowAccepts" HorizontalAlignment="Left" Margin="470,15,0,0" VerticalAlignment="Top" Width="134" Height="26"/>
+        <Button Visibility="{Binding OpretReparationMethods.Visibility, UpdateSourceTrigger=PropertyChanged}" Content="Slet" Command="{Binding StandardCommand}" CommandParameter="OpretReparation.DeleteCase" HorizontalAlignment="Left" Margin="609,15,0,0" VerticalAlignment="Top" Width="100" Height="26"/>
+        <TextBox Name="Opret_Name" Text="{Binding StartPageMethods.CurrentCase.Customer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="25" Margin="163,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="25" Margin="163,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="163,138,0,0" TextWrapping="Wrap" Text="{Binding StartPageMethods.CurrentCase.Customer.ZipCode.Zip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" MaxLength="4" Width="64"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Telephone , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="25" Margin="163,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="29"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.Customer.Email , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="25" Margin="163,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox TextWrapping="Wrap" VerticalAlignment="Stretch" VerticalContentAlignment="Top" 
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     SpellCheck.IsEnabled="True"
+                       BorderThickness="1"
+                     Height="Auto" Margin="163,250,472,83" Text="{Binding StartPageMethods.CurrentCase.Description , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.38,1.718"></TextBox>
+        <Label Content="Reparation" HorizontalAlignment="Left" Margin="183,15,0,0" VerticalAlignment="Top" Width="118" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.Manufacturer , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="25" Margin="544,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Text="{Binding StartPageMethods.CurrentCase.PC.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="544,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Text="{Binding StartPageMethods.CurrentCase.PC.SerialNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="544,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.OS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="544,170,0,0" VerticalAlignment="Top" Width="165" Height="25" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="544,209,0,0" Text="{Binding StartPageMethods.CurrentCase.PC.CPU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.RAM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="544,251,0,0" VerticalAlignment="Top" Width="165" MaxLength="254"></TextBox>
+        <TextBox HorizontalAlignment="Left" Text="{Binding StartPageMethods.CurrentCase.PC.Storage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" Margin="544,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" MaxLength="254"/>
+        <Button Content="{Binding OpretReparationMethods.SaveBtnTxt, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ValidationCommand, UpdateSourceTrigger=PropertyChanged}" CommandParameter="OpretReparation.SaveCase"  HorizontalAlignment="Left" Margin="554,368,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Button Content="Luk" Command="{Binding StandardCommand}" CommandParameter="OpretReparation.GoBack" HorizontalAlignment="Left" Margin="634,368,0,0" VerticalAlignment="Top" Height="26" Width="75"/>
+        <Label Content="Producent" HorizontalAlignment="Left" Margin="470,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="SerieNr" HorizontalAlignment="Left" Margin="470,135,0,0" VerticalAlignment="Top"/>
+        <Label Content="OS" HorizontalAlignment="Left" Margin="470,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Model" HorizontalAlignment="Left" Margin="470,95,0,0" VerticalAlignment="Top"/>
+        <Label Content="CPU" HorizontalAlignment="Left" Margin="470,209,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ram" HorizontalAlignment="Left" Margin="470,251,0,0" VerticalAlignment="Top"/>
+        <Label Content="HDD" HorizontalAlignment="Left" Margin="470,288,0,0" VerticalAlignment="Top"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="470,328,0,0" VerticalAlignment="Top"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="78,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adresse" HorizontalAlignment="Left" Margin="78,95,0,0" VerticalAlignment="Top"/>
+        <Label Content="PostNr" HorizontalAlignment="Left" Margin="78,134,0,0" VerticalAlignment="Top"/>
+        <Label Content="Telefon" HorizontalAlignment="Left" Margin="78,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,2.038"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="78,209,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.342,5.346"/>
+        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="78,251,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="Opret_Status" DisplayMemberPath="Status" SelectedValue="{Binding StartPageMethods.CurrentCase.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding OpretReparationMethods.StatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="544,328,0,0" VerticalAlignment="Top" Width="165" Height="26">
         </ComboBox>
         <!--<ComboBox ItemsSource="{Binding CityList}" DisplayMemberPath="Zip" SelectedValuePath="Zip" SelectedValue="{Binding CurrentCase.Customer.ZipCode.Zip}" HorizontalAlignment="Left" Margin="84,134,0,0" VerticalAlignment="Top" Width="64"/>-->
-        <Label Content="{Binding StartPageMethods.CurrentCase.Customer.ZipCode.City }" HorizontalAlignment="Left" Margin="153,126,0,0" VerticalAlignment="Top" Height="30"/>
-        <Label Content="{Binding ValidationCommand.ErrorMessage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="263,399,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding StartPageMethods.CurrentCase.Customer.ZipCode.City }" HorizontalAlignment="Left" Margin="232,136,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="{Binding ValidationCommand.ErrorMessage, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="347,399,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

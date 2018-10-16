@@ -1,9 +1,10 @@
-﻿<Page x:Class="ServiceDesk_Reperation.View.SendUpdate"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ServiceDesk_Reperation.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="ServiceDesk_Reperation.View.SendUpdate"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SendUpdate">
@@ -11,7 +12,7 @@
     <Grid Background="White">
         <Button Content="Send Update" Command="{Binding StandardCommand}" CommandParameter="SendUpdate.GemUpdate" HorizontalAlignment="Left" Margin="174,377,0,0" VerticalAlignment="Top" Width="126"/>
         <Button Content="Annuler" Command="{Binding StandardCommand}" CommandParameter="SendUpdate.GoBack" HorizontalAlignment="Left" Margin="418,377,0,0" VerticalAlignment="Top" Width="128"/>
-        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" Margin="558,85,25,94"  HeadersVisibility="Column"
+        <DataGrid HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" x:Name="MainPage_Data" Margin="558,85,25,94"  HeadersVisibility="Column"
                   IsReadOnly="True" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="false"  ItemsSource="{Binding StartPageMethods.CurrentCase.Parts, Mode=TwoWay}">
 
             <!--<DataGrid.LayoutTransform>
@@ -36,12 +37,20 @@
             </DataGrid.ColumnHeaderStyle>-->
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Dele" Binding="{Binding PartName}" Width="*"/>
+                <DataGridTextColumn Header="Komponent" Binding="{Binding PartName}" Width="*"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status.Status}" Width="*" />
             </DataGrid.Columns>
 
         </DataGrid>
-        <TextBox HorizontalAlignment="Left" Text="{Binding SendUpdateMethods.Update, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="272" Margin="174,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372"/>
-        <Label Content="Note til Opdatering" HorizontalAlignment="Left" Margin="45,84,0,0" VerticalAlignment="Top"/>
+        <TextBox TextWrapping="Wrap" VerticalAlignment="Stretch" VerticalContentAlignment="Top" 
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     SpellCheck.IsEnabled="True"
+                       BorderThickness="1"
+                     Height="Auto" Margin="174,84,288,94" Text="{Binding SendUpdateMethods.Update, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.38,1.718"/>
+        <Label Content="Note til Opdatering" HorizontalAlignment="Left" Margin="29,84,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Card Padding="10" Margin="26,16,25,0" Height="51">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"><Run Text="Send Opdatering"/></TextBlock>
+        </materialDesign:Card>
     </Grid>
 </Page>
