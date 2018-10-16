@@ -85,7 +85,6 @@
     <Compile Include="Model\Part.cs" />
     <Compile Include="Model\PartStatus.cs" />
     <Compile Include="Model\PC.cs" />
-    <Compile Include="Model\Reparation.cs" />
     <Compile Include="Model\Case.cs" />
     <Compile Include="Model\ZipCode_City.cs" />
     <Compile Include="ViewModel\Commands\PartsDataGridCommand.cs" />
@@ -99,7 +98,6 @@
     <Compile Include="ViewModel\Pages\OpretReparationMethods.cs" />
     <Compile Include="ViewModel\Pages\SendUpdateMethods.cs" />
     <Compile Include="ViewModel\Pages\StartPageMethods.cs" />
-    <Compile Include="ViewModel\Presenter.cs" />
     <Compile Include="View\ChangeOfBuy.xaml.cs">
       <DependentUpon>ChangeOfBuy.xaml</DependentUpon>
     </Compile>

@@ -1,10 +1,5 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
 using ServiceDesk_Reperation.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace ServiceDesk_Reperation.ViewModel

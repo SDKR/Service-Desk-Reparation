@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ServiceDesk_Reperation.DBConnect;
+﻿using ServiceDesk_Reperation.DBConnect;
 
 namespace ServiceDesk_Reperation.ViewModel.Pages
 {
