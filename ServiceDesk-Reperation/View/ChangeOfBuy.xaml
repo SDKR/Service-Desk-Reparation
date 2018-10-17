@@ -8,18 +8,18 @@
       Title="ChangeOfBuy">
 
     <Grid Background="White">
-        <TextBox Text="{Binding ChangeOfBuyMethods.CurrentPart.PartName, Mode=TwoWay}" HorizontalAlignment="Left" Height="26" Margin="51,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112"/>
-        <TextBox Text="{Binding ChangeOfBuyMethods.CurrentPart.Price, Mode=TwoWay}" HorizontalAlignment="Left" Height="26" Margin="224,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox DisplayMemberPath="Status"  Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding ChangeOfBuyMethods.CurrentPart.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding ChangeOfBuyMethods.PartStatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="430,51,0,0" VerticalAlignment="Top" Width="120" Height="26">
+        <TextBox Text="{Binding ChangeOfBuyMethods.CurrentPart.PartName, Mode=TwoWay}" HorizontalAlignment="Left" Height="28" Margin="108,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" MaxLength="254"/>
+        <TextBox Text="{Binding ChangeOfBuyMethods.CurrentPart.Price, Mode=TwoWay}" HorizontalAlignment="Left" Height="28" Margin="293,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+        <ComboBox DisplayMemberPath="Status"  Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding ChangeOfBuyMethods.CurrentPart.Status.ID, Mode=TwoWay}" SelectedValuePath="ID" ItemsSource="{Binding ChangeOfBuyMethods.PartStatusList, Mode=OneWay}" HorizontalAlignment="Left" Margin="482,51,0,0" VerticalAlignment="Top" Width="111" Height="28">
         </ComboBox>
-        <Button Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.SavePart" Content="Gem" HorizontalAlignment="Left" Margin="614,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <Button Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.DeletePart" Content="Slet" HorizontalAlignment="Left" Margin="716,51,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
+        <Button Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.SavePart" Content="Gem" HorizontalAlignment="Left" Margin="596,51,0,0" VerticalAlignment="Top" Height="26" Width="97"/>
+        <Button Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.DeletePart" Content="Slet" HorizontalAlignment="Left" Margin="698,51,0,0" VerticalAlignment="Top" Height="26" Width="101"/>
         <DataGrid IsSynchronizedWithCurrentItem="True" IsReadOnly="True" ItemsSource="{Binding StartPageMethods.CurrentCase.Parts, Mode=TwoWay}" HorizontalGridLinesBrush="#FFBDB5B5" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,89,10,30">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Del" Binding="{Binding PartName}" Width="*"/>
-                <DataGridTextColumn Header="Pris" Binding="{Binding Price}" Width="*"/>
+                <DataGridTextColumn Header="Komponent" Binding="{Binding PartName}" Width="1.15*"/>
+                <DataGridTextColumn Header="Pris" Binding="{Binding Price}" Width="0.85*"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status.Status}" Width="*"/>
-                <DataGridTextColumn Header="Sidst Opdataeret" Binding="{Binding LastChangedDate}" Width="*"/>
+                <DataGridTextColumn Header="Sidst Opdateret" Binding="{Binding LastChangedDate}" Width="*"/>
             </DataGrid.Columns>
             <DataGrid.InputBindings>
                 <MouseBinding
@@ -29,12 +29,12 @@
                 </MouseBinding>
             </DataGrid.InputBindings>
         </DataGrid>
-        <Label Content="Del" HorizontalAlignment="Left" Margin="15,51,0,0" VerticalAlignment="Top" Width="36"/>
-        <Label Content="Pris" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" Width="44"/>
-        <Label Content="Status" Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="381,51,0,0" VerticalAlignment="Top" Width="44"/>
-        <Button Content="Opret Ny" Visibility="{Binding ChangeOfBuyMethods.Visibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.Create" HorizontalAlignment="Left" Margin="614,15,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="716,15,0,0" VerticalAlignment="Top" Width="74" Height="28" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.GoToSend"/>
-        <Button Content="Ryd Indhold" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.ClearFields" HorizontalAlignment="Left" Margin="514,15,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
-        <Button Content="Tilbage" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.GoBack" HorizontalAlignment="Left" Margin="408,15,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Label Content="Komponent" HorizontalAlignment="Left" Margin="22,51,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Pris" HorizontalAlignment="Left" Margin="253,51,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Content="Status" Visibility="{Binding ChangeOfBuyMethods.InverseVisibility, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="428,51,0,0" VerticalAlignment="Top" Width="49"/>
+        <Button Content="Opret Ny" Visibility="{Binding ChangeOfBuyMethods.Visibility, UpdateSourceTrigger=PropertyChanged}" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.Create" HorizontalAlignment="Left" Margin="596,15,0,0" VerticalAlignment="Top" Height="26" Width="97"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="698,15,0,0" VerticalAlignment="Top" Width="101" Height="26" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.GoToSend"/>
+        <Button Content="Ryd Indhold" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.ClearFields" HorizontalAlignment="Left" Margin="476,15,0,0" VerticalAlignment="Top" Width="116" Height="26"/>
+        <Button Content="Tilbage" Command="{Binding StandardCommand}" CommandParameter="ChangeOfBuy.GoBack" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Width="85" Height="26"/>
     </Grid>
 </Page>

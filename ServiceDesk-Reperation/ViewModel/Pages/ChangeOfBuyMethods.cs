@@ -1,9 +1,5 @@
 ﻿using ServiceDesk_Reperation.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ServiceDesk_Reperation.ViewModel.Pages
@@ -84,8 +80,12 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         }
         public void SavePart()
         {
-            CurrentPart.Status.UpdateStatus();
-            CurrentPart.updatePart();
+            bool WarningBox = PageChanger.DialogBox("Vil du updater delen?", "Warning", MessageBoxButton.YesNo);
+            if (WarningBox)
+            {
+                CurrentPart.Status.UpdateStatus();
+                CurrentPart.updatePart();
+            }
         }
     public void DeletePart()
         {
@@ -104,12 +104,16 @@ namespace ServiceDesk_Reperation.ViewModel.Pages
         }
         public void Create()
         {
-            if (CurrentPart.Status.ID == 0)
+            bool WarningBox = PageChanger.DialogBox("Vil du Oprette en ny del?", "Warning", MessageBoxButton.YesNo);
+            if (WarningBox)
             {
-                CurrentPart.Status.ID = 1;
-                CurrentPart.CaseID = PageChanger.StartPageMethods.CurrentCase.ID;
-                CurrentPart.createPart();
-                PageChanger.StartPageMethods.CurrentCase.GetParts();
+                if (CurrentPart.Status.ID == 0)
+                {
+                    CurrentPart.Status.ID = 1;
+                    CurrentPart.CaseID = PageChanger.StartPageMethods.CurrentCase.ID;
+                    CurrentPart.createPart();
+                    PageChanger.StartPageMethods.CurrentCase.GetParts();
+                }
             }
         }
         public void GoBack()

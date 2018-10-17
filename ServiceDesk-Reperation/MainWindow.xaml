@@ -6,8 +6,18 @@
         xmlns:local="clr-namespace:ServiceDesk_Reperation"
         xmlns:vm="clr-namespace:ServiceDesk_Reperation.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="850"
+        Title="Service Desk Reparation" Height="500" Width="850"
         Content="{Binding CurrentPage}"
+        ResizeMode="CanMinimize"
+    
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         >
     <Window.DataContext>
         <vm:PageChanger/>

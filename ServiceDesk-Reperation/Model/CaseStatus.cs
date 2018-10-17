@@ -1,11 +1,6 @@
 ﻿using ServiceDesk_Reperation.DBConnect;
 using ServiceDesk_Reperation.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServiceDesk_Reperation.Model
 {
@@ -34,7 +29,8 @@ namespace ServiceDesk_Reperation.Model
 
         public CaseStatus()
         {
-            Status = "New";
+            ID = 1;
+            Status = "new";
         }
 
         public CaseStatus(int ID)

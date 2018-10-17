@@ -34,9 +34,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.1.1101, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.1.1101\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.12\lib\net452\MySql.Data.dll</HintPath>
@@ -76,7 +85,6 @@
     <Compile Include="Model\Part.cs" />
     <Compile Include="Model\PartStatus.cs" />
     <Compile Include="Model\PC.cs" />
-    <Compile Include="Model\Reparation.cs" />
     <Compile Include="Model\Case.cs" />
     <Compile Include="Model\ZipCode_City.cs" />
     <Compile Include="ViewModel\Commands\PartsDataGridCommand.cs" />
@@ -90,7 +98,6 @@
     <Compile Include="ViewModel\Pages\OpretReparationMethods.cs" />
     <Compile Include="ViewModel\Pages\SendUpdateMethods.cs" />
     <Compile Include="ViewModel\Pages\StartPageMethods.cs" />
-    <Compile Include="ViewModel\Presenter.cs" />
     <Compile Include="View\ChangeOfBuy.xaml.cs">
       <DependentUpon>ChangeOfBuy.xaml</DependentUpon>
     </Compile>
@@ -160,6 +167,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+    <Content Include="Resources\body.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\vare.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

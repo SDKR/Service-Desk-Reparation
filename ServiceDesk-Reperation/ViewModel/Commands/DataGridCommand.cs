@@ -1,9 +1,5 @@
 ﻿using ServiceDesk_Reperation.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ServiceDesk_Reperation.ViewModel.Commands

@@ -6,10 +6,14 @@
       xmlns:local="clr-namespace:ServiceDesk_Reperation.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StartPage">
+      Title="StartPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
     <Grid>
-        <DataGrid IsSynchronizedWithCurrentItem="True"  Height="288" HorizontalGridLinesBrush="#FFBDB5B5" CanUserDeleteRows="False" RowHeight="22" IsReadOnly="True" CanUserAddRows="false" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10"
+        <materialDesign:Card Padding="32" Margin="16">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Service Desk Reparation</TextBlock>
+        </materialDesign:Card>
+        <DataGrid IsSynchronizedWithCurrentItem="True"  Height="288" HorizontalGridLinesBrush="#FFBDB5B5" CanUserDeleteRows="False" RowHeight="35" IsReadOnly="True" CanUserAddRows="false" VerticalGridLinesBrush="#FFF0EDED" Name="MainPage_Data" AutoGenerateColumns="False" Margin="10,111,10,10"
                   ItemsSource="{Binding StartPageMethods.Cases}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="*"/>
@@ -25,6 +29,6 @@
                 </MouseBinding>
             </DataGrid.InputBindings>
         </DataGrid>
-        <Button Content="Opret" Command="{Binding StandardCommand}" CommandParameter="StartPage.CreateCase" HorizontalAlignment="Left" Margin="696,22,0,0" VerticalAlignment="Top" Width="86" Height="71"></Button>
+        <Button Content="Opret" Command="{Binding StandardCommand}" CommandParameter="StartPage.CreateCase" HorizontalAlignment="Left" Margin="696,25,0,0" VerticalAlignment="Top" Width="86" Height="71"></Button>
     </Grid>
 </Page>
